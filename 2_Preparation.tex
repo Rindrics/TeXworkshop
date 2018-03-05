@@ -1,0 +1,93 @@
+\documentclass[TeXworkshop]{subfiles}
+\begin{document}
+\section{\TeX およびその他ソフトウェアの準備}
+本講習では以下のソフトウェアを使用します。
+事前のご準備をお願いします。
+\begin{itemize}
+\item TeX
+\item SumatraPDF
+\item Notepad++
+\item R
+\item Inkscape
+\end{itemize}
+
+% -------------------------------------------------------------------------------------------
+\subsection*{TeX}
+\TeX の開発環境の構築には、Windows では \TeX インストーラーを用い、Mac では \memo{...林くん、お願いします...} を用います。
+詳しくは以下のホームページを御覧ください。
+
+
+\noindent Windows
+
+\begin{itemize}
+\item 簡単\LaTeX\footnote{\TeX にマクロを実装したもの。ユーザーは \LaTeX を通して \TeX を使うことになる。本講習では両者を区別しない。}インストールWindows編\footnote{\url{http://did2memo.net/2016/04/24/easy-latex-install-windows-10-2016-04/}}
+\item \TeX インストーラー\footnote{\url{http://www.math.sci.hokudai.ac.jp/~abenori/soft/abtexinst.html}}
+\end{itemize}
+
+
+
+\noindent Mac
+
+\memo{...林くん、お願いします...}
+MacTeXとTeXShopのインストール
+
+
+
+% -------------------------------------------------------------------------------------------
+\subsection*{SumatraPDF}
+SumatraPDF は Adobe Acrobat Reader DC 等と同じ PDF ビューワーです。
+一般に PDF を作成・更新するときは、ファイルを閉じておかなければいけません。
+しかし、この SumatraPDF はファイルを開いた状態でPDF を作成・更新できます。
+つまり、出力結果を確認しながら編集作業を行えるという優れものであり、\TeX Wiki\footnote{\url{https://texwiki.texjp.org/?SumatraPDF}} でも推奨されています。
+インストールの際は \href{https://www.sumatrapdfreader.org/download-free-pdf-viewer.html}{SumatraPDF インストーラー}\footnote{\url{https://www.sumatrapdfreader.org/download-free-pdf-viewer.html}} をご利用下さい。
+
+
+
+
+
+% -------------------------------------------------------------------------------------------
+\subsection*{Notepad++}
+Notepad++ は Windows に標準装備されているメモ帳と同じようなテキストエディターです。
+今回使用する \TeX に加え、R, Python, C, C++ 等の主要なプログラムをシンタックスハイライト\footnote{シンタックスハイライト (英: syntax highlighting) とは、テキストエディタの機能であり、テキスト中の一部分をその分類ごとに異なる色やフォントで表示するものである (Wikipedia より)。}で表示し、入力をサポートしてくれるソフトウェアです。
+インストールの際は \href{https://notepad-plus-plus.org/download/v7.5.3.html}{Notepad++ インストーラー}\footnote{\url{https://notepad-plus-plus.org/download/v7.5.3.html}} をご利用下さい。
+
+
+
+
+
+
+% -------------------------------------------------------------------------------------------
+\subsection*{R}
+R は統計解析向けのプログラミング言語である R 言語を扱う開発環境です。
+様々なパッケージが開発されており、これを実装することで複雑な統計解析も簡単なコードで実行できるようになります。
+今回は \TeX で表を作成する際にパッケージ Hmisc を使用しますので、予めインストールして下さい。
+R をインストールする際は \href{https://cran.ism.ac.jp/bin/windows/}{R for Windows}\footnote{\url{https://cran.ism.ac.jp/bin/windows/}} または \href{https://cran.ism.ac.jp/bin/macosx/}{R for Mac OS X}\footnote{\url{https://cran.ism.ac.jp/bin/macosx/}} よりインストーラーをご利用下さい。
+パッケージ Hmisc をインストールする際は、R のコンソールに install.packages("Hmisc") と入力して下さい。
+
+
+
+
+
+% -------------------------------------------------------------------------------------------
+\subsection*{Inkscape}
+Inkscape は Adobe Illustrator のようなドロー系の描画ソフトです。
+本講習では R で作成したグラフの整形の際に少し触れます。
+受講にあたってインストールする必要はありませんが、インストールの際は \href{https://inkscape.org/en/release/0.92.2/}{Inkscape インストーラー}\footnote{\url{https://inkscape.org/en/release/0.92.2/}} をご利用下さい。
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

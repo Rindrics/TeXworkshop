@@ -1,0 +1,101 @@
+\documentclass[a4paper, 11pt,fleqn]{jarticle}               % fleqn:  数式左寄せ
+
+\usepackage[utf8]{inputenc}        % rtf 経由で word に出力する時に必要,  latex2rtfで日本語
+\usepackage{booktabs}                    % 表に罫線を引くパッケージ
+\usepackage{lscape}                              % 横向きのページを作るパッケージ
+\usepackage{color}                              % 文字の色を変えるパッケージ
+\usepackage{okumacro}                    % ルビをふるパッケージ
+\usepackage{times}                         %  times: LaTex で Times New Roman
+\usepackage{txfonts}                         % 数式で使うフォントの指定
+\usepackage[margin=25mm,bottom=20mm,left=25mm, right=25mm]{geometry}          %  [LaTeX] 1ページ当たりの行数，文字数と周囲の余白を設定する
+
+
+% ハイフネーションの禁止 -----
+\hyphenpenalty=10000\relax
+\exhyphenpenalty=10000\relax
+\sloppy
+
+\usepackage{subfiles} % 娘ファイルを独立にタイプセット可能にする
+
+% 図表の挿入とキャプションの設定 -----
+\usepackage{wrapfig}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{mediabb}
+\renewcommand{\figurename}{Fig.}          % Latexで図表番号だけを英語で表記,  キャプションのスタイルを変更したい スタイルファイル
+\renewcommand{\tablename}{Table }
+\usepackage{here}          % 図を確実に入れ込むためのパッケージ here or float
+
+
+% 引用に関する設定 -----
+\usepackage{natbib}
+\bibliographystyle{jecon}
+\renewcommand{\refname}{引用文献}
+
+
+% しおりとハイパーリンクを作るパッケージ -----
+\AtBeginDvi{\special{pdf:tounicode 90ms-RKSJ-UCS2}}
+\usepackage[dvipdfm,
+                      bookmarks=true,
+                      bookmarksnumbered=true,
+                      bookmarkstype=toc, 
+                      colorlinks=true,
+                      linkcolor=black, 
+                      citecolor=blue,
+                      urlcolor=black,
+                      pdfborder={0 0 0}]{hyperref}
+
+
+
+
+% DRAFT マーク
+%\usepackage{graphicx}
+%\usepackage{color}
+\usepackage{fancybox}
+\fancyput(2.0cm, -18.0cm){
+ \color[rgb]{0.85,0.85,0.85}{\rotatebox{50}{\scalebox{10}{DRAFT}}}}
+
+
+% 行間の設定
+\usepackage{setspace} % setspaceパッケージのインクルード
+\setstretch{1.5} % ページ全体の行間を設定
+
+
+
+% 関数の設定 //////////////////////////////////////////////////////
+
+% 追加箇所 -----
+\usepackage{color}
+\definecolor{green}{rgb}{0, 0.6, 0}	% 緑色を再定義
+\newcommand{\NS}[1]{\textcolor{green}{#1}}
+
+
+% 共著者へのメッセージや自分へのメモ -----
+\newcommand{\memo}[1]{{\footnotesize \textcolor{red}{[#1]}}}
+
+
+
+
+% 当落線上の一文 -----
+\newcommand{\reduce}[1]{\textcolor{magenta}{#1}}
+
+
+
+%//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+\begin{document}                    % ここから文章開始
+
+\title{\TeX 講習会}
+\date{2018 年 4 月}
+\author{中野　善、 林　晃}
+\maketitle
+
+\tableofcontents
+
+\newpage
+\subfile{1_Introduction}
+\subfile{2_Preparation}
+
+
+
+
+
+\end{document}                    % ここで文章終り

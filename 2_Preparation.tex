@@ -1,39 +1,53 @@
 \documentclass[TeXworkshop]{subfiles}
 \begin{document}
-\section{\TeX およびその他ソフトウェアの準備}
-本講習では以下のソフトウェアを使用します。
-事前のご準備をお願いします。
-\begin{itemize}
-\item TeX
-\item SumatraPDF
-\item Notepad++
-\item R
-\item Inkscape
-\end{itemize}
+\section{環境設定 ---講習会の前に---}
 
 % -------------------------------------------------------------------------------------------
-\subsection*{TeX}
-\TeX の開発環境の構築には、Windows では \TeX インストーラーを用い、Mac では \memo{...林くん、お願いします...} を用います。
-詳しくは以下のホームページを御覧ください。
+\subsection*{\TeX のインストール}
+Windows、Mac共に、\TeX 執筆環境を構築するための便利なインストーラ、パッケージが準備されています。
+ご自分のOSに合わせて、以下を参考にご準備ください。
 
-
-\noindent Windows
+\subsubsection*{Windows}
 
 \begin{itemize}
 \item 簡単\LaTeX\footnote{\TeX にマクロを実装したもの。ユーザーは \LaTeX を通して \TeX を使うことになる。本講習では両者を区別しない。}インストールWindows編\footnote{\url{http://did2memo.net/2016/04/24/easy-latex-install-windows-10-2016-04/}}
-\item \TeX インストーラー\footnote{\url{http://www.math.sci.hokudai.ac.jp/~abenori/soft/abtexinst.html}}
+\item \TeX インストーラ\footnote{\url{http://www.math.sci.hokudai.ac.jp/~abenori/soft/abtexinst.html}}
 \end{itemize}
 
+\subsubsection*{Mac}
+\TeX の執筆環境を一括整備してくれるMac\TeX パッケージをご利用いただくと便利です。
+公式サイト\footnote{\url{http://www.tug.org/mactex/mactex-download.html}}より\ttfamily{mactex-20******.pkg}をダウンロードして実行し、画面の指示に従ってインストールを進めてください。
+インストールが完了したら、試しにターミナル.appを開き、\ttfamily{tex}と入力してみましょう。\TeX が起動し、"\ttfamily{This is TeX, Version 3.xx (TeX Live 2017) (preloaded format=tex)
+**}"などと応答が返って来れば準備完了です（動作確認後、ターミナルは閉じて構いません）。\ttfamily{Unknown command 'tex'}というエラーが返ってきた場合にはインストールに失敗しております。主催者までご連絡下さい。
+
+\begin{itembox}[l]{メモ}
+Mac\TeX とは、以下のソフトウェアをバンドルした統合パッケージです。
+\begin{itemize}
+	\item{\TeX Shop}（執筆、コンパイル、プレビューソフト）
+	\item{\TeX Live Utility}（パッケージ管理ソフト）
+	\item{BibDesk}（文献管理ソフト）
+	\item{\LaTeX iT}(数式作成用ソフト)
+	\item{Excalibur}（スペルチェックソフト）
+\end{itemize}
+\end{itembox}
 
 
-\noindent Mac
-
-\memo{...林くん、お願いします...}
-MacTeXとTeXShopのインストール
 
 
+\subsubsection*{その他のOS}
+あなたは自力でできるはずです。
+講習には、いつもお使いの言語の開発環境、ドロー系描画ソフト、PDFビューアを準備しておいて下さい。
 
 % -------------------------------------------------------------------------------------------
+\subsection*{その他のソフトウェア}
+本講習では、実際の研究業務の作業フローを紹介するため、以下のソフトウェアを使用します。
+事前にご準備をお願いします（同様の機能を持つソフトウェアを既にお使いの方は、準備の必要はありません）。
+\begin{itemize}
+\item R（プログラミング言語）
+\item Notepad++（テキストエディタ）
+\item Inkscape（ベクター編集ソフト）
+\item SumatraPDF（PDFビューア）
+\end{itemize}
 \subsection*{SumatraPDF}
 SumatraPDF は Adobe Acrobat Reader DC 等と同じ PDF ビューワーです。
 一般に PDF を作成・更新するときは、ファイルを閉じておかなければいけません。

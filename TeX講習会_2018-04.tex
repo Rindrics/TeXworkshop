@@ -1,39 +1,39 @@
-＼documentclass[a4paper, 11pt,fleqn]{jarticle}               % fleqn:  \UTF{0090}\UTF{0094}\UTF{008E}\UTF{00AE}\UTF{008D}¶\UTF{008A}\UTF{00F1}\UTF{0082}\UTF{00B9}%
+\documentclass[a4paper, 11pt,fleqn]{jarticle}               % fleqn:  数式左寄せ
 
-＼usepackage[utf8]{inputenc}        % rtf \UTF{008C}o\UTF{0097}R\UTF{0082}\UTF{00C5} word \UTF{0082}\UTF{00C9}\UTF{008F}o\UTF{0097}\UTF{00CD}\UTF{0082}\UTF{00B7}\UTF{0082}\UTF{00E9}\UTF{008E}\UTF{009E}\UTF{0082}\UTF{00C9}\UTF{0095}K\UTF{0097}v,  latex2rtf\UTF{0082}\UTF{00C5}\UTF{0093}\UTF{00FA}\UTF{0096}{\UTF{008C}\UTF{00EA}%
-＼usepackage{booktabs}                    % \UTF{0095}＼\UTF{0082}\UTF{00C9}\UTF{008C}r\UTF{0090}\UTF{00FC}\UTF{0082}\UTF{00F0}\UTF{0088}\UTF{00F8}\UTF{0082}\UTF{00AD}\UTF{0083}p\UTF{0083}b\UTF{0083}P\UTF{0081}[\UTF{0083}W
-＼usepackage{lscape}                              % \UTF{0089}\UTF{00A1}\UTF{008C}\UTF{00FC}\UTF{0082}\UTF{00AB}\UTF{0082}\UTF{00CC}\UTF{0083}y\UTF{0081}[\UTF{0083}W\UTF{0082}\UTF{00F0}\UTF{008D}\UTF{00EC}\UTF{0082}\UTF{00E9}\UTF{0083}p\UTF{0083}b\UTF{0083}P\UTF{0081}[\UTF{0083}W
-＼usepackage{color}                              % \UTF{0095}¶\UTF{008E}\UTF{009A}\UTF{0082}\UTF{00CC}\UTF{0090}F\UTF{0082}\UTF{00F0}\UTF{0095}\UTF{00CF}\UTF{0082}\UTF{0160}\UTF{0082}\UTF{00E9}\UTF{0083}p\UTF{0083}b\UTF{0083}P\UTF{0081}[\UTF{0083}W
-＼usepackage{okumacro}                    % \UTF{0083}\UTF{008B}\UTF{0083}r\UTF{0082}\UTF{00F0}\UTF{0082}\UTF{00D3}\UTF{0082}\UTF{00E9}\UTF{0083}p\UTF{0083}b\UTF{0083}P\UTF{0081}[\UTF{0083}W
-＼usepackage{times}                         %  times: LaTex \UTF{0082}\UTF{00C5} Times New Roman
-＼usepackage{txfonts}                         % \UTF{0090}\UTF{0094}\UTF{008E}\UTF{00AE}\UTF{0082}\UTF{00C5}\UTF{008E}g\UTF{0082}\UTF{20AC}\UTF{0083}t\UTF{0083}H\UTF{0083}\UTF{0093}\UTF{0083}g\UTF{0082}\UTF{00CC}\UTF{008E}w\UTF{0092}\UTF{00E8}%
-＼usepackage[margin=25mm,bottom=20mm,left=25mm, right=25mm]{geometry}          %  [LaTeX] 1\UTF{0083}y\UTF{0081}[\UTF{0083}W\UTF{0093}\UTF{0096}\UTF{0082}\UTF{0153}\UTF{0082}\UTF{00E8}\UTF{0082}\UTF{00CC}\UTF{008D}s\UTF{0090}\UTF{0094}\UTF{0081}C\UTF{0095}¶\UTF{008E}\UTF{009A}\UTF{0090}\UTF{0094}\UTF{0082}\UTF{00C6}\UTF{008E}\UTF{00FC}\UTF{0088}\UTF{00CD}\UTF{0082}\UTF{00CC}\UTF{0097}]\UTF{0094}\UTF{0092}\UTF{0082}\UTF{00F0}\UTF{0090}\UTF{00DD}\UTF{0092}\UTF{00E8}\UTF{0082}\UTF{00B7}\UTF{0082}\UTF{00E9}%
-
-
-% \UTF{0083}n\UTF{0083}C\UTF{0083}t\UTF{0083}l\UTF{0081}[\UTF{0083}V\UTF{0083}\UTF{0087}\UTF{0083}\UTF{0093}\UTF{0082}\UTF{00CC}\UTF{008B}\UTF{00D6}\UTF{008E}～ -----
-＼hyphenpenalty=10000＼relax
-＼exhyphenpenalty=10000＼relax
-＼sloppy
+\usepackage[utf8]{inputenc}        % rtf 経由で word に出力する時に必要,  latex2rtfで日本語
+\usepackage{booktabs}                    % 表に罫線を引くパッケージ
+\usepackage{lscape}                              % 横向きのページを作るパッケージ
+\usepackage{color}                              % 文字の色を変えるパッケージ
+\usepackage{okumacro}                    % ルビをふるパッケージ
+\usepackage{times}                         %  times: LaTex で Times New Roman
+\usepackage{txfonts}                         % 数式で使うフォントの指定
+\usepackage[margin=25mm,bottom=20mm,left=25mm, right=25mm]{geometry}          %  [LaTeX] 1ページ当たりの行数，文字数と周囲の余白を設定する
 
 
-% \UTF{0090}}\UTF{0095}＼\UTF{0082}\UTF{00CC}\UTF{0091}}\UTF{0093}\UTF{00FC}\UTF{0082}\UTF{00C6}\UTF{0083}L\UTF{0083}\UTF{0083}\UTF{0083}v\UTF{0083}V\UTF{0083}\UTF{0087}\UTF{0083}\UTF{0093}\UTF{0082}\UTF{00CC}\UTF{0090}\UTF{00DD}\UTF{0092}\UTF{00E8} -----
-＼usepackage{wrapfig}
-＼usepackage[dvipdfm]{graphicx}
-＼usepackage{mediabb}
-＼renewcommand{＼figurename}{Fig.}          % Latex\UTF{0082}\UTF{00C5}\UTF{0090}}\UTF{0095}＼\UTF{0094}\UTF{00D4}\UTF{008D}\UTF{0086}\UTF{0082}\UTF{0178}\UTF{0082}\UTF{00AF}\UTF{0082}\UTF{00F0}\UTF{0089}p\UTF{008C}\UTF{00EA}\UTF{0082}\UTF{00C5}\UTF{0095}＼\UTF{008B}L,  \UTF{0083}L\UTF{0083}\UTF{0083}\UTF{0083}v\UTF{0083}V\UTF{0083}\UTF{0087}\UTF{0083}\UTF{0093}\UTF{0082}\UTF{00CC}\UTF{0083}X\UTF{0083}^\UTF{0083}C\UTF{0083}\UTF{008B}\UTF{0082}\UTF{00F0}\UTF{0095}\UTF{00CF}\UTF{008D}X\UTF{0082}\UTF{00B5}\UTF{0082}\UTF{0153}\UTF{0082}￠ \UTF{0083}X\UTF{0083}^\UTF{0083}C\UTF{0083}\UTF{008B}\UTF{0083}t\UTF{0083}@\UTF{0083}C\UTF{0083}\UTF{008B}%
-＼renewcommand{＼tablename}{Table }
-＼usepackage{here}          % \UTF{0090}}\UTF{0082}\UTF{00F0}\UTF{008A}m\UTF{008E}\UTF{00C0}\UTF{0082}\UTF{00C9}\UTF{0093}\UTF{00FC}\UTF{0082}\UTF{00EA}\UTF{008D}\UTF{009E}\UTF{0082}\UTF{00DE}\UTF{0082}\UTF{0153}\UTF{0082}\UTF{00DF}\UTF{0082}\UTF{00CC}\UTF{0083}p\UTF{0083}b\UTF{0083}P\UTF{0081}[\UTF{0083}W here or float
+% ハイフネーションの禁止 -----
+\hyphenpenalty=10000\relax
+\exhyphenpenalty=10000\relax
+\sloppy
 
 
-% \UTF{0088}\UTF{00F8}\UTF{0097}p\UTF{0082}\UTF{00C9}\UTF{008A}\UTF{00D6}\UTF{0082}\UTF{00B7}\UTF{0082}\UTF{00E9}\UTF{0090}\UTF{00DD}\UTF{0092}\UTF{00E8} -----
-＼usepackage{natbib}
-＼bibliographystyle{jecon}
-＼renewcommand{＼refname}{\UTF{0088}\UTF{00F8}\UTF{0097}p\UTF{0095}¶\UTF{008C}￡}
+% 図表の挿入とキャプションの設定 -----
+\usepackage{wrapfig}
+\usepackage[dvipdfm]{graphicx}
+\usepackage{mediabb}
+\renewcommand{\figurename}{Fig.}          % Latexで図表番号だけを英語で表記,  キャプションのスタイルを変更したい スタイルファイル
+\renewcommand{\tablename}{Table }
+\usepackage{here}          % 図を確実に入れ込むためのパッケージ here or float
 
 
-% \UTF{0082}\UTF{00B5}\UTF{0082}\UTF{0161}\UTF{0082}\UTF{00E8}\UTF{0082}\UTF{00C6}\UTF{0083}n\UTF{0083}C\UTF{0083}p\UTF{0081}[\UTF{0083}\UTF{008A}\UTF{0083}\UTF{0093}\UTF{0083}N\UTF{0082}\UTF{00F0}\UTF{008D}\UTF{00EC}\UTF{0082}\UTF{00E9}\UTF{0083}p\UTF{0083}b\UTF{0083}P\UTF{0081}[\UTF{0083}W -----
-＼AtBeginDvi{＼special{pdf:tounicode 90ms-RKSJ-UCS2}}
-＼usepackage[dvipdfm,
+% 引用に関する設定 -----
+\usepackage{natbib}
+\bibliographystyle{jecon}
+\renewcommand{\refname}{引用文献}
+
+
+% しおりとハイパーリンクを作るパッケージ -----
+\AtBeginDvi{\special{pdf:tounicode 90ms-RKSJ-UCS2}}
+\usepackage[dvipdfm,
                       bookmarks=true,
                       bookmarksnumbered=true,
                       bookmarkstype=toc, 
@@ -46,49 +46,54 @@
 
 
 
-% DRAFT \UTF{0083}}\UTF{0081}[\UTF{0083}N
-%＼usepackage{graphicx}
-%＼usepackage{color}
-＼usepackage{fancybox}
-＼fancyput(2.0cm, -18.0cm){
- ＼color[rgb]{0.85,0.85,0.85}{＼rotatebox{50}{＼scalebox{10}{DRAFT}}}}
+% DRAFT マーク
+%\usepackage{graphicx}
+%\usepackage{color}
+\usepackage{fancybox}
+\fancyput(2.0cm, -18.0cm){
+ \color[rgb]{0.85,0.85,0.85}{\rotatebox{50}{\scalebox{10}{DRAFT}}}}
+
+
+% 行間の設定
+\usepackage{setspace} % setspaceパッケージのインクルード
+\setstretch{1.5} % ページ全体の行間を設定
 
 
 
-% \UTF{008A}\UTF{00D6}\UTF{0090}\UTF{0094}\UTF{0082}\UTF{00CC}\UTF{0090}\UTF{00DD}\UTF{0092}\UTF{00E8} //////////////////////////////////////////////////////
+% 関数の設定 //////////////////////////////////////////////////////
 
-% \UTF{0092}\UTF{00C7}\UTF{0089}\UTF{00C1}\UTF{0089}\UTF{00D3}\UTF{008F}\UTF{008A} -----
-＼usepackage{color}
-＼definecolor{green}{rgb}{0, 0.6, 0}	% \UTF{0097}\UTF{00CE}\UTF{0090}F\UTF{0082}\UTF{00F0}\UTF{008D}\UTF{00C4}\UTF{0092}\UTF{00E8}\UTF{008B}`
-＼newcommand{＼NS}[1]{＼textcolor{green}{#1}}
-
-
-% \UTF{008B}\UTF{20AC}\UTF{0092}\UTF{0098}\UTF{008E}\UTF{00D2}\UTF{0082}\UTF{00D6}\UTF{0082}\UTF{00CC}\UTF{0083}\UTF{0081}\UTF{0083}b\UTF{0083}Z\UTF{0081}[\UTF{0083}W\UTF{0082}\UTF{00E2}\UTF{008E}\UTF{00A9}\UTF{0095}\UTF{00AA}\UTF{0082}\UTF{00D6}\UTF{0082}\UTF{00CC}\UTF{0083}\UTF{0081}\UTF{0083}\UTF{0082} -----
-＼newcommand{＼memo}[1]{{＼footnotesize ＼textcolor{red}{[#1]}}}
+% 追加箇所 -----
+\usepackage{color}
+\definecolor{green}{rgb}{0, 0.6, 0}	% 緑色を再定義
+\newcommand{\NS}[1]{\textcolor{green}{#1}}
 
 
+% 共著者へのメッセージや自分へのメモ -----
+\newcommand{\memo}[1]{{\footnotesize \textcolor{red}{[#1]}}}
 
-% \UTF{0093}\UTF{0096}\UTF{0097}\UTF{008E}\UTF{0090}\UTF{00FC}\UTF{008F}\UTF{00E3}\UTF{0082}\UTF{00CC}\UTF{0088}\UTF{00EA}\UTF{0095}¶ -----
-＼newcommand{＼reduce}[1]{＼textcolor{magenta}{#1}}
+
+
+% 当落線上の一文 -----
+\newcommand{\reduce}[1]{\textcolor{magenta}{#1}}
 
 
 
 
 %//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-＼begin{document}                    % \UTF{0082}±\UTF{0082}±\UTF{0082}\UTF{00A9}\UTF{0082}\UTF{00E7}\UTF{0095}¶\UTF{008F}\UTF{00CD}\UTF{008A}J\UTF{008E}n
+\begin{document}                    % ここから文章開始
 
-＼title{＼TeX \UTF{008D}u\UTF{008F}K\UTF{0089}\UTF{00EF}}
-＼date{2018 \UTF{0094}N 4 \UTF{008C}\UTF{008E}}
-＼author{\UTF{0092}\UTF{0086}\UTF{0096}\UTF{00EC}\UTF{0081}@\UTF{0091}P\UTF{0081}A \UTF{0097}\UTF{00D1}\UTF{0081}@\UTF{008D}W}
-＼maketitle
+\title{\TeX 講習会}
+\date{2018 年 4 月}
+\author{中野　善、 林　晃}
+\maketitle
 
-＼tableofcontents
+\tableofcontents
 
-＼newpage
-＼input{1_\UTF{0082}\UTF{00CD}\UTF{0082}¶\UTF{0082}\UTF{00DF}\UTF{0082}\UTF{00C9}}
-
-
+\newpage
+\input{1_はじめに}
 
 
 
-＼end{document}                    % \UTF{0082}±\UTF{0082}±\UTF{0082}\UTF{00C5}\UTF{0095}¶\UTF{008F}\UTF{00CD}\UTF{008F}I\UTF{0082}\UTF{00E8}%
+
+
+\end{document}                    % ここで文章終り

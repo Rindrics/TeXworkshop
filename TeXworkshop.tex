@@ -70,12 +70,15 @@
 \definecolor{green}{rgb}{0, 0.6, 0}	% 緑色を再定義
 \newcommand{\NS}[1]{\textcolor{green}{#1}}
 \usepackage{listings, jlisting}
+\usepackage{pxrubrica}
 
 
 % 共著者へのメッセージや自分へのメモ -----
 \newcommand{\memo}[1]{{\footnotesize \textcolor{red}{[#1]}}}
 
 %\renewcommand{\ttdefault}{cmtt}  % 等幅フォントの書体
+\renewcommand{\figurename}{図}
+\renewcommand{\tablename}{表}
 
 
 % 当落線上の一文 -----
@@ -96,6 +99,7 @@
 \newpage
 \subfile{Introduction}
 \subfile{Preparation}
+\subfile{Differences}
 \subfile{Excercise_1}
 
 

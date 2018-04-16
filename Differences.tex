@@ -74,9 +74,21 @@ WYSIWIG/WYSIWYM両タイプのソフトウェア(以下Microsoft Wordと\TeX）�
 それぞれの役割を見ていきましょう。
 
 \subsubsection{プリアンブル}
-プリアンブルは、.texファイルの先頭に位置しています。
+\ttfamily{.tex}ファイルを開いて最初に目に入る先頭部分がプリアンブルです（図\ref{fig:example_wagahai}の青色部分）。
+プリアンブルは、その文書をどのような形の媒体で印刷するのかを設定する場所です。
+図\ref{fig:example_wagahai}の1行目にある\verb|\begin{document}|
+
+	
 \subsubsection{ドキュメント}
-に挟まれた部分は「ドキュメント」と呼ばれ、実際の執筆作業のほとんどはこの部分で行います。
+\verb|\begin{document}|と\verb|\end{document}|に挟まれた部分を「ドキュメント」と呼びます。
+実際の執筆作業のほとんどはこの部分で行います。
+
+
+
+\begin{figure}[H]
+\caption{test}\label{fig:example_wagahai}
+\includegraphics[width=\textwidth,clip]{Example_wagahai.eps}
+\end{figure}
 
 \subsection{関数の紹介}
 

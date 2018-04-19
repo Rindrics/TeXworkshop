@@ -70,25 +70,73 @@ WYSIWIG/WYSIWYM両タイプのソフトウェア(以下Microsoft Wordと\TeX）�
 もうお気づきとは思いますが、「ちょっとした一皿と万能包丁」はちょっとした覚え書きとMicrosoft Wordの、「自慢の蕎麦と蕎麦切り包丁」は報告書や学術論文と\TeX のアナロジーです。毎年、一定のフォーマットで提出する報告書、IMRAD型式の学術論文は、\TeX で作成しましょう。
 
 \subsection{\TeX ファイルの構造}
-\TeX で文書を作成するための.texファイルは、文書の構造や仕様を定義するための「プリアンブル」、そして実際に印刷される文書の内容は「ドキュメント」の2部に分かれています。
+\TeX で文書を作成するための\ttfamily{.tex}ファイルは大まかには2つの部分に分かれています。
+文書の構造や仕様を定義するための「プリアンブル」と、実際に印刷される内容を執筆するための「ドキュメント」の、（図\ref{fig:example_wagahai}）。
 それぞれの役割を見ていきましょう。
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=\textwidth,clip]{Example_wagahai.eps}
+\caption{test}\label{fig:example_wagahai}
+\end{center}
+\end{figure}
 
 \subsubsection{プリアンブル}
 \ttfamily{.tex}ファイルを開いて最初に目に入る先頭部分がプリアンブルです（図\ref{fig:example_wagahai}の青色部分）。
 プリアンブルは、その文書をどのような形の媒体で印刷するのかを設定する場所です。
-図\ref{fig:example_wagahai}の1行目にある\verb|\begin{document}|
+図\ref{fig:example_wagahai}の1行目に書かれている
+\verb|\documentclass{tarticle}|は、「この文書を縦書きのarticle型式の文書クラスで出力せよ」という命令です。
+この\ttfamily{.tex}ファイルをコンパイルすると、図\ref{fig:tategaki}のような文書が出力されます。
 
-	
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=0.5\textwidth,clip]{tategaki.eps}
+\caption{test}\label{fig:tategaki}
+\end{center}
+\end{figure}
+
+
+小説らしいレイアウトですね。
+
+この文書を横書きで出力するには、プリアンブルの文書クラスを横書きのもの、例えば\ttfamily{"article"}に変更します（図\ref{fig:change_doc_class}）。
+\begin{figure}[htbp]
+\centering
+\subfigure[\ttfamily{.tex}ファイル]{
+	\includegraphics[clip, width=0.45\textwidth]{yokogaki.eps}
+	\label{fig:yokogaki_src}
+}
+\subfigure[出力]{
+	\includegraphics[clip, width=0.45\textwidth]{yokogaki_output.eps}
+	\label{fig:yokogaki_out}
+}
+\caption{文書クラスの変更例}
+\label{fig:change_doc_class}
+\end{figure}
+
+
+
+このように、文書の仕様を指定するのがプリアンブルの役目です。
+
+
+
+
 \subsubsection{ドキュメント}
 \verb|\begin{document}|と\verb|\end{document}|に挟まれた部分を「ドキュメント」と呼びます。
 実際の執筆作業のほとんどはこの部分で行います。
+ドキュメント部の使い方は、比較的シンプルです。
 
+\subsubsection{使いこなす}
+ところで、図\ref{fig:example_wagahai}や図\ref{fig:yokogaki_src}に
+\verb|\title{吾輩は猫である}|
+や
+\verb|\author{夏目漱石}|
+などのコマンドが書いてあったのにお気づきでしたでしょうか。
+これらの情報は文書には出力されていませんが（図\ref{fig:tategaki}、図\ref{fig:yokogaki_out}）、
+文書には確かにタイトルや著者名の情報が与えられています。
 
+このように、プリアンブルに文書の属性や情報を記述することで、出力を変えずに文書の機能を高めていくことができます。
+この他にも、
 
-\begin{figure}[H]
-\caption{test}\label{fig:example_wagahai}
-\includegraphics[width=\textwidth,clip]{Example_wagahai.eps}
-\end{figure}
 
 \subsection{関数の紹介}
 

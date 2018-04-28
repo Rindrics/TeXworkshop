@@ -5,9 +5,9 @@
 \section{\TeX のすゝめ}
 \subsection{ワープロソフトの種類}
 動作に着目すると、文書を作成するソフトウェアは大きく2タイプに分類することができます。
-1つは、テキストの編集画面をほぼそのまま出力するWYSIWY\kenten{G} [What You See Is What You \kenten{G}et]タイプ、
+1つは、テキストの編集画面をほぼそのまま出力する\ruby{WYSIWYG}{ウィジウィグ} [What You See Is What You \kenten{G}et]タイプ、
 % フリガナ追加
-もう1つは、文書の構造を明示的に定義して編集を行うWYSIWY\kenten{M} [What You See Is What You \kenten{M}ean]タイプです。これら2タイプのソフトウェアは、得意とする作業が大きく異なっています。
+もう1つは、文書の構造を明示的に定義して編集を行う\ruby{WYSIWYM}{ウィジウィム} [What You See Is What You \kenten{M}ean]タイプです。これら2タイプのソフトウェアは、得意とする作業が大きく異なっています。
 
 
 私たちは、日々の研究活動や業務において様々な種類の文書を扱いますが、その特性の大部分は文書の規模、内容の反復度、数値データの数、相互参照や図表の数などによって決定されます。
@@ -17,7 +17,13 @@
 それでは、これら2つのタイプの文書作成ソフトウェアは、どのように異なるのでしょうか。
 
 \subsubsection{WYSIWYG}
-WYSIWYGタイプのソフトウェアの中にも、シンプルなものから高機能なものまで様々ありますが、ある程度の規模の文書を作成する場合には、Microsoft Wordのように、図表の挿入から校正機能など、多くの機能を備えた「オール・インワン」的なソフトウェアを使用することが多いようです（表 \ref{table:differences}）。これらはマウスを用いた直感的な操作性に優れているため、使用開始初期の学習コストが低いのが特長です。
+WYSIWYGタイプのソフトウェアの中にも、シンプルなものから高機能なものまで様々ありますが、
+ある程度の規模の文書を作成する場合には、
+Microsoft Wordのように、図表の挿入から校正機能など、
+多くの機能を備えた「オール・インワン」的なソフトウェアを使用することが多いようです
+（表 \ref{table:differences}）。
+これらはマウスを用いた直感的な操作性に優れているため、
+使用開始初期の学習コストが低いのが特長です。
 
 
 \subsubsection{WYSIWYM}
@@ -123,22 +129,98 @@ WYSIWIG/WYSIWYM両タイプのソフトウェア(以下Microsoft Wordと\TeX）�
 \subsubsection{ドキュメント}
 \verb|\begin{document}|と\verb|\end{document}|に挟まれた部分を「ドキュメント」と呼びます。
 実際の執筆作業のほとんどはこの部分で行います。
-ドキュメント部の使い方は、比較的シンプルです。
 
-\subsubsection{使いこなす}
-ところで、図\ref{fig:example_wagahai}や図\ref{fig:yokogaki_src}に
+本文の執筆中、特定の箇所で書式を変更する必要が生じた場合、
+\TeX では、バックスラッシュ（\symbol{"5C}）\footnote{Windows環境の場合は円通貨記号}
+や中括弧を用いた
+「関数」を用いる決まりがあります。
+
+「章」「節」などの文書の構造に関わる見出し
+\footnote{
+part、chapter、section、subsection、subsubsection、paragraph、subparagraph
+などが利用可能です}
+は、
+\verb|\chapter{章の名前}|
+\verb|\section{節の名前}|
+などのように指定する決まりがあり、
+それぞれのレベルに予め設定された書式が自動的に適用されます。
+
+文書の構造に関係がない部分に書式を変更したい場合にも、
+やはり関数が必要です（図\ref{fig:large_italic}）。
+しかし、ドキュメント部でその都度関数を呼び出し、
+書式をその場限りで変更するこのような方法は、
+\TeX では推奨されていません。
+それはなぜでしょうか。
+
+\begin{figure}[htbp]
+\centering
+\subfigure[\ttfamily{.tex}ファイル]{
+	\includegraphics[clip, width=0.45\textwidth]{large_italic.eps}
+	\label{fig:large_italic_src}
+}
+\subfigure[出力]{
+	\includegraphics[clip, width=0.45\textwidth]{large_italic_out.eps}
+	\label{fig:large_italic_out}
+}
+\caption{その場限りのフォント変更}
+\label{fig:large_italic}
+\end{figure}
+\clearpage
+
+\subsubsection{\TeX らしい記法: マクロ}
+文字を大きくしたい箇所が文書中に複数箇所ある場合を考えてみます（図\ref{fig:redundant}）。
+\verb|{\LARGE ニャーニャー}|という面倒なタイピングを、
+本文中であと何回繰り返すことになりそうでしょうか。
+もし、この部分のフォントのサイズを変更したくなったら、
+検索・置換作業を繰り返して設定を変更して回らねばなりません。
+
+\begin{figure}[htbp]
+\centering
+\subfigure[\ttfamily{.tex}ファイル]{
+	\includegraphics[clip, width=0.45\textwidth]{redundant.eps}
+	\label{fig:redundant_src}
+}
+\subfigure[出力]{
+	\includegraphics[clip, width=0.45\textwidth]{redundant_out.eps}
+	\label{fig:redundant_out}
+}\caption{そのばしのぎはあとが大変}
+\label{fig:redundant}
+\end{figure}
+
+このような状況を回避するために、
+\TeX ではプリアンブルにおけるマクロの定義（図\ref{fig:macro}）が推奨されています。
+\begin{figure}[htbp]
+\centering
+	\includegraphics[clip, width=\textwidth]{macro.eps}
+	\caption{マクロを利用したフォントの変更}
+  \label{fig:macro}
+\end{figure}
+マクロはひとたび定義してしまえば、本文中で呼び出すことによって何度でも利用でき、
+何よりもプリアンブルにおける定義を変更するだけで一括で設定を変更できるのが利点です。
+
+\begin{itembox}[l]{コラム: \TeX 記法は面倒？}
+本文のフォントや体裁を変更する場合、
+「気軽さ」という観点では、\TeX はMS Wordには到底敵いません。
+MS Wordではキーボードショートカットで瞬時に作業が完了するのに対し、
+\TeX の関数は、入力に時間がかかる上、入力後も本文中でスペースを占め続けます。
+このように、\TeX 記法は一見、時空間コストが高く思えるのですが、
+この特性は文書の規模が大きくなるにつれ、むしろメリットに変化していきます。
+
+メリットとしてなにをしようとしているのか
+
+目立つ
+
+\end{itembox}
+
+\begin{itembox}[l]{コラム: タイトル}
+ここまで示してきた図のプリアンブルに、
 \verb|\title{吾輩は猫である}|
 や
 \verb|\author{夏目漱石}|
-などのコマンドが書いてあったのにお気づきでしたでしょうか。
-これらの情報は文書には出力されていませんが（図\ref{fig:tategaki}、図\ref{fig:yokogaki_out}）、
-文書には確かにタイトルや著者名の情報が与えられています。
-
-このように、プリアンブルに文書の属性や情報を記述することで、出力を変えずに文書の機能を高めていくことができます。
-この他にも、
-
-
-\subsection{関数の紹介}
+などの関数が書いてあったのにお気づきでしたでしょうか。
+これは\TeX に標準で備わっているマクロの一種で、
+ドキュメント部に\verb|\maketitle|と書くことで、
+著者名や表題、日付が書かれたタイトルページが出力されます。
+\end{itembox}
 
 \end{document}
-

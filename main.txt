@@ -1,0 +1,206 @@
+#+STARTUP: indent content
+#+TITLE: TeX講習会
+
+* DONE 元締めファイル
+- State "DONE"       from ""           [2018-06-13 Wed 20:59]
+#+BEGIN_SRC tex
+\documentclass[a4paper, 11pt,fleqn]{jarticle}               % fleqn:  数式左寄せ
+
+\usepackage[utf8]{inputenc}        % rtf 経由で word に出力する時に必要,  latex2rtfで日本語
+\usepackage{booktabs}                    % 表に罫線を引くパッケージ
+\usepackage{lscape}                              % 横向きのページを作るパッケージ
+\usepackage{color}                              % 文字の色を変えるパッケージ
+\usepackage{okumacro}                    % ルビをふるパッケージ
+\usepackage{times}                         %  times: LaTex で Times New Roman
+\usepackage{txfonts}                         % 数式で使うフォントの指定
+\usepackage[margin=25mm,bottom=20mm,left=25mm, right=25mm]{geometry}          %  [LaTeX] 1ページ当たりの行数，文字数と周囲の余白を設定する
+
+
+% ハイフネーションの禁止 -----
+\hyphenpenalty=10000\relax
+\exhyphenpenalty=10000\relax
+\sloppy
+
+\usepackage{subfiles} % 娘ファイルを独立にタイプセット可能にする
+
+% 図表の挿入とキャプションの設定 -----
+\usepackage{wrapfig}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{mediabb}
+\renewcommand{\figurename}{Fig.}          % Latexで図表番号だけを英語で表記,  キャプションのスタイルを変更したい スタイルファイル
+\renewcommand{\tablename}{Table }
+\usepackage{here}          % 図を確実に入れ込むためのパッケージ here or float
+
+
+% 引用に関する設定 -----
+\usepackage{natbib}
+\bibliographystyle{jecon}
+\renewcommand{\refname}{引用文献}
+
+
+% しおりとハイパーリンクを作るパッケージ -----
+\AtBeginDvi{\special{pdf:tounicode 90ms-RKSJ-UCS2}}
+\usepackage[dvipdfm,
+                      bookmarks=true,
+                      bookmarksnumbered=true,
+                      bookmarkstype=toc, 
+                      colorlinks=true,
+                      linkcolor=black, 
+                      citecolor=blue,
+                      urlcolor=black,
+                      pdfborder={0 0 0}]{hyperref}
+
+
+\usepackage{ascmac}  % アイテムボックス用
+\usepackage{fancybox}  % アイテムボックス用
+
+
+% DRAFT マーク
+%\usepackage{graphicx}
+%\usepackage{color}
+\usepackage{fancybox}
+\fancyput(2.0cm, -18.0cm){
+ \color[rgb]{0.85,0.85,0.85}{\rotatebox{50}{\scalebox{10}{DRAFT}}}}
+
+
+% 行間の設定
+\usepackage{setspace} % setspaceパッケージのインクルード
+\setstretch{1.5} % ページ全体の行間を設定
+
+
+
+% 関数の設定 //////////////////////////////////////////////////////
+
+% 追加箇所 -----
+\usepackage{color}
+\definecolor{green}{rgb}{0, 0.6, 0}	% 緑色を再定義
+\newcommand{\NS}[1]{\textcolor{green}{#1}}
+\usepackage{listings, jlisting}
+\usepackage{pxrubrica}
+\graphicspath{{./figs/}}
+\usepackage{subfigure}
+
+
+% 共著者へのメッセージや自分へのメモ -----
+\newcommand{\memo}[1]{{\footnotesize \textcolor{red}{[#1]}}}
+
+%\renewcommand{\ttdefault}{cmtt}  % 等幅フォントの書体
+\renewcommand{\figurename}{図}
+\renewcommand{\tablename}{表}
+
+
+% 当落線上の一文 -----
+\newcommand{\reduce}[1]{\textcolor{magenta}{#1}}
+
+
+
+%//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+\begin{document}                    % ここから文章開始
+
+\title{\TeX 講習会}
+\date{2018 年 4 月}
+\author{中野　善、 林　晃}
+\maketitle
+
+\tableofcontents
+
+\newpage
+\subfile{Introduction}
+\subfile{Preparation}
+\subfile{Differences}
+\subfile{Excercise_1}
+
+
+
+
+\end{document}                    % ここで文章終り
+	
+
+#+END_SRC
+* ASSIGNED 本講習の概要 [中野、10 分、9:00 ～ 9:10]
+- State "ASSIGNED"   from ""           [2018-06-13 Wed 20:58] \\
+  中野さん
+
+#+BEGIN_SRC tex
+\documentclass[TeXworkshop]{subfiles}
+\begin{document}
+\section{はじめに}
+
+本講習会では、
+\begin{itemize}
+\item \TeX による事業報告書の編集ができるようになること
+\item \TeX による論文の執筆に対する抵抗感を下げること
+\end{itemize}
+を目的としています。
+
+本講習を受講される皆様におかれましては、事業報告書の執筆および編集作業、学術論文の執筆や研究費申請書の作成等、あらゆる種類の執筆を日夜行っていることと思います。
+一般に編集・執筆作業では、そのエフォートのほとんどは「論理展開の構成」と「体裁の統一」に割かれます。
+このうち \TeX は「体裁の統一」をサポートしてくれる強力なツールです。
+つまり、私たちは \TeX を使うことで、文章作成上最も重要な「論理展開の構成」に集中できるようになるわけです。
+\TeX と聞くと、なにやらハードルが高そうな印象を抱くかもしれませんが、触れてみると意外と易しい構造になっていることに気がつくはずです。
+本講習では、\TeX の基本的な使い方を説明したのち、実際に編集・執筆作業を行っていただくことで、上に掲げた本講習の目的を達成したいと思います。
+
+\end{document}
+#+END_SRC
+** 開会の挨拶
+
+** 経緯説明
+
+     * ゼミで発表したところ、講習会の要望があった
+     * 事業報告書の編集作業の負担軽減
+     * 資源評価報告書を将来的に TeX で作成
+         * 体裁の統一が楽
+         * 数値参照で間違え防止
+           
+
+** 目標
+    * TeX による事業報告書の編集ができるようになること
+
+
+* TODO Word とTeX の違い [林、20 分、9:10 ～ 9:30]
+
+[[file:Differences.tex]]
+
+** WYSIWYG と WYSIWYM 仕組みをかんたんに説明
+
+** 優劣ではなく使い分けるべきもの
+
+** 作業画面の表示
+     * 画面の見方
+     * プリアンブル部
+     * ドキュメント部？
+
+** 関数の紹介
+    * パッケージの解説  使うには宣言する必要がある。
+    * 一覧表配布
+    * エラー集
+    * 自作関数の解説  プリアンブルに書くライトなマクロ
+
+* ASSIGNED 報告書編集作業の実習1 [中野、150 分、9:30 ～ 12:00]
+
+* TODO 報告書編集作業の実習2 [林、150 分、13:30 ～ 16:00]
+
+** ゼロから TeX ファイルを作る
+     * 改めて、なぜ TeX を使う必要があるのか？
+         * 間違いは許されない
+             * Rからのマクロ自動生成
+             * 数値展開によるミス根絶
+         * 計り知れない人的コスト削減効果
+             * 「全ての枝先」が重い形から「根元だけ」が重い形へ
+             * 「書き方」ファイルとの決別
+         * プラスアルファの価値を
+
+
+** 資源評価報告書　←「重い初期投資を十分ペイできる大規模成果物」の好モデル
+    * (内容については林くんにおまかせ)
+    * 
+
+
+
+* まとめ [10 分]
+
+** 閉会の挨拶
+     * 弘法筆を選ばず
+     * 弘法も筆の誤り
+     * 私たちは弘法大師にはなれない、ならばいっそ筆を選んでついでに誤りも減らそう
+

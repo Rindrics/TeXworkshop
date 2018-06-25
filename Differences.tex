@@ -11,14 +11,11 @@
 % フリガナ追加
 もう1つは、文書の構造を明示的に定義して編集を行う
 \ruby{WYSIWYM}{ウィジウィム} [What You See Is What You \kenten{M}ean]タイプです。
-これら2タイプのソフトウェアは、得意とする作業が大きく異なっています。
-
 
 私たちは、日々の研究活動や業務において様々な種類の文書を扱いますが、
 その特性の大部分は文書の規模、構造化の程度や内容の反復度、数値データの数、相互参照や図表の数などによって決定されます。
 品質要求を満たした文書を最短時間で作成するためには、
 自身が作成しようとしている文書の特性を見極め、適切なタイプのソフトウェアを使用する必要があります。
-
 それでは、これら2つのタイプの文書作成ソフトウェアは、どのように異なるのでしょうか。
 
 \subsubsection{WYSIWYG}
@@ -32,14 +29,20 @@ Microsoft Wordのように、図表の挿入から校正機能など、
 
 
 \subsubsection{WYSIWYM}
+本講習では、このWISIWIMタイプのソフトウェアの代表格である\TeX について学びます。
+本来、両タイプのソフトウェアの性能には一概に優劣をつけられるものではありませんが、
+私たち研究者が業務で作成する文書の大部分が、図表や文献を多く含み、高度に構造化されていることを考えれば、
+私たちが\TeX を学ぶことのメリットは十分に大きいと言えます。
+
 WYSIWYMタイプのソフトウェアでは、編集画面が見たままに出力されないため、
 文書内の図表などの要素の位置をテキストで細かく指定したり、文章にさまざまな属性を与えることができます。
 本講習で紹介する\TeX は、このWYSIWYMタイプのソフトウェアの代表格です。
 
+
 \TeX では、目次や図表、索引、脚注、数式番号、文献などの参照も、
 ファイル名や参照のための手がかりを埋め込んでおくことによって、容易に実現できます。
 「○○ページを御覧ください」のような、特定ページの参照も可能です。
-この方式をとっていることによって、\TeX で作成された文書は変更に強く、再現性を高く保つことができます（表 \ref{table:differences}）。 
+この方式をとっていることによって、\TeX で作成された文書は変更に強く、再現性を高く保つことができます（表 \ref{table:differences}）。
 文書の体裁に注意力を削がれずに済むため、執筆者は残りの作業時間の大部分を文書内容の推敲に充てることができます。
 
 \TeX は、変更を成果物に反映させるためにコンパイルを必要とします。
@@ -124,12 +127,12 @@ WYSIWIG/WYSIWYM両タイプのソフトウェア(以下Microsoft Wordと\TeX）�
 \begin{figure}[htbp]
 \centering
 \subfigure[\ttfamily{.tex}ファイル]{
-	\includegraphics[clip, width=0.45\textwidth]{yokogaki.eps}
-	\label{fig:yokogaki_src}
+  \includegraphics[clip, width=0.45\textwidth]{yokogaki.eps}
+  \label{fig:yokogaki_src}
 }
 \subfigure[出力]{
-	\includegraphics[clip, width=0.45\textwidth]{yokogaki_output.eps}
-	\label{fig:yokogaki_out}
+  \includegraphics[clip, width=0.45\textwidth]{yokogaki_output.eps}
+  \label{fig:yokogaki_out}
 }
 \caption{文書クラスの変更例}
 \label{fig:change_doc_class}
@@ -172,12 +175,12 @@ part、chapter、section、subsection、subsubsection、paragraph、subparagraph
 \begin{figure}[htbp]
 \centering
 \subfigure[\ttfamily{.tex}ファイル]{
-	\includegraphics[clip, width=0.45\textwidth]{large_italic.eps}
-	\label{fig:large_italic_src}
+  \includegraphics[clip, width=0.45\textwidth]{large_italic.eps}
+  \label{fig:large_italic_src}
 }
 \subfigure[出力]{
-	\includegraphics[clip, width=0.45\textwidth]{large_italic_out.eps}
-	\label{fig:large_italic_out}
+  \includegraphics[trim={3cm 7cm 0 0},clip, width=0.3\textwidth]{large_italic_out.eps}
+  \label{fig:large_italic_out}
 }
 \caption{その場限りのフォント変更}
 \label{fig:large_italic}
@@ -189,17 +192,17 @@ part、chapter、section、subsection、subsubsection、paragraph、subparagraph
 \verb|{\LARGE ニャーニャー}|という面倒なタイピングを、
 本文中であと何回繰り返すことになりそうでしょうか。
 もし、この部分のフォントのサイズを変更したくなったら、
-検索・置換作業を繰り返して設定を変更して回らねばなりません。
+検索・置換作業を繰り返し、サイズ指定を変更して回らねばなりません。
 
 \begin{figure}[htbp]
 \centering
 \subfigure[\ttfamily{.tex}ファイル]{
-	\includegraphics[clip, width=0.45\textwidth]{redundant.eps}
-	\label{fig:redundant_src}
+  \includegraphics[clip, width=0.45\textwidth]{redundant.eps}
+  \label{fig:redundant_src}
 }
 \subfigure[出力]{
-	\includegraphics[clip, width=0.45\textwidth]{redundant_out.eps}
-	\label{fig:redundant_out}
+  \includegraphics[clip, width=0.45\textwidth]{redundant_out.eps}
+  \label{fig:redundant_out}
 }\caption{そのばしのぎはあとが大変}
 \label{fig:redundant}
 \end{figure}
@@ -208,24 +211,31 @@ part、chapter、section、subsection、subsubsection、paragraph、subparagraph
 \TeX ではプリアンブルにおけるマクロの定義（図\ref{fig:macro}）が推奨されています。
 \begin{figure}[htbp]
 \centering
-	\includegraphics[clip, width=\textwidth]{macro.eps}
-	\caption{マクロを利用したフォントの変更}
+  \includegraphics[clip, width=\textwidth]{macro.eps}
+  \caption{マクロを利用したフォントの変更}
   \label{fig:macro}
 \end{figure}
 マクロはひとたび定義してしまえば、本文中で呼び出すことによって何度でも利用でき、
 何よりもプリアンブルにおける定義を変更するだけで一括で設定を変更できるのが利点です。
+
+\TeX の具体的な使い方を学ぶには、実際にコードの編集とコンパイルを繰り返すのが一番です。
+本講習で配布するサンプルコードで、いろいろと試してみてください。
 
 \begin{itembox}[l]{コラム: \TeX 記法は面倒？}
 本文のフォントや体裁を変更する場合、
 「気軽さ」という観点では、\TeX はMS Wordには到底敵いません。
 MS Wordではキーボードショートカットで瞬時に作業が完了するのに対し、
 \TeX の関数は、入力に時間がかかる上、入力後も本文中でスペースを占め続けます。
-このように、\TeX 記法は一見、時空間コストが高く思えるのですが、
+このように、\TeX 記法は一見、時空間的コストが高く思えるのですが、
 この特性は文書の規模が大きくなるにつれ、むしろメリットに変化していきます。
 
-メリットとしてなにをしようとしているのか
+体裁の指定が目立つこと自体が、1つ目のメリットといえるでしょう。
+体裁の指定が目立つ分、単純に、体裁の直し忘れが起こりにくいですし、プレーンテキストなので検索も可能です。
 
-目立つ
+ 2つめのメリットはさらに重要です。
+ \TeX 記法は体裁の指定に手間がかかる分、自分が今から\kenten{何をしようとしているのか}を、慎重に考えるようになります。
+ 例えば、フォントの色や大きさを変えようとしているとき、その本来の目的はその部分を強調して伝えることでしょう。
+ひょっとしたら、フォントを変更して文面を煩雑にするよりも、アウトラインを整理する方がよほど効果的かもしれません。
 
 \end{itembox}
 
@@ -234,9 +244,9 @@ MS Wordではキーボードショートカットで瞬時に作業が完了す�
 \verb|\title{吾輩は猫である}|
 や
 \verb|\author{夏目漱石}|
-などの関数が書いてあったのにお気づきでしたでしょうか。
-これは\TeX に標準で備わっているマクロの一種で、
-ドキュメント部に\verb|\maketitle|と書くことで、
+などと書いてあったのにお気づきでしたでしょうか。
+これは\TeX に標準で備わった、文書の情報（属性といいます）を格納するマクロの一種です。
+ドキュメント部に\verb|\maketitle|と書けば、
 著者名や表題、日付が書かれたタイトルページが出力されます。
 \end{itembox}
 

@@ -1,8 +1,7 @@
 #+STARTUP: indent content
 #+TITLE: TeX講習会
-* 元締めファイル
+* 各章の.texをまとめるファイル
 [[/Users/ahayashi/Documents/GitHub/TeXworkshop/TeXworkshop.tex]]
-
 * 本講習の概要 [中野、10 分、9:00 ～ 9:10]
 [[/Users/ahayashi/Documents/GitHub/TeXworkshop/introduction.tex]]
 ** 開会の挨拶
@@ -21,8 +20,7 @@ TeX による事業報告書の編集ができるようになること
 * 報告書編集作業の実習1 [中野、150 分、9:30 ～ 12:00]
 
 * 報告書編集作業の実習2 （事業報告書を \TeX で作る）[林、150 分、13:30 ～ 16:00]
-
-
+[[/Users/ahayashi/Documents/GitHub/TeXworkshop/exercise2.org]]
 * まとめ [10 分]
 ** 閉会の挨拶
      * 弘法筆を選ばず

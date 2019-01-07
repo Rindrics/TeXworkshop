@@ -1,0 +1,64 @@
+#+TITLE: TeXWorkshop
+#+STARTUP: showall
+#+PROPERTY: header-args :results output
+* これは何か？
+TeXの講習会用のリポジトリ。
+"TeXに慣れていない人にいかに上手く説明するか"についての方法論のストック場。
+
+* 使い方
+#+BEGIN_SRC sh :results silent
+platex TeXworkshop
+dvipdfmx TeXWorkshop
+#+END_SRC
+
+* ファイル説明
+#+BEGIN_SRC sh :results output
+#tree
+#+END_SRC
+
+#+begin_example
+.
+|-- #README.org#
+|-- Example_wagahai.pdf
+|-- Example_wagahai.tex
+|-- Preparation.tex
+|-- README.org
+|-- TeXworkshop.pdf
+|-- TeXworkshop.tex                <- 各章の.texファイルをまとめる元締めファイル
+|-- _bk                            <- ゴミ箱代わり
+|   `-- .gitkeep
+|-- differences.tex
+|-- exercise                      <- 資源評価報告書用のディレクトリ
+|   |-- .latexmkrc
+|   |-- 01_title_section.tex
+|   |-- manuscript.tex~
+|   |-- report.pdf
+|   |-- report.tex
+|   `-- report.tex~
+|-- exercise2.org                 <- 林担当の実習2
+|-- exercise2.org~
+|-- figs                          <- 図表の格納場所
+|   |-- .DS_Store
+|   |-- Example_wagahai.ai
+|   |-- Example_wagahai.eps
+|   |-- Example_wagahai.png
+|   |-- large_italic.eps
+|   |-- large_italic.png
+|   |-- large_italic_out.eps
+|   |-- large_italic_out.png
+|   |-- macro.eps
+|   |-- macro.png
+|   |-- redundant.eps
+|   |-- redundant.png
+|   |-- redundant_out.eps
+|   |-- redundant_out.png
+|   |-- tategaki.eps
+|   |-- tategaki.png
+|   |-- yokogaki.eps
+|   `-- yokogaki_output.eps
+|-- introduction.tex
+|-- jlisting.sty
+|-- jpaper.cls
+|-- main.org                      <- プロジェクト全体を見渡すorgファイル
+`-- mediabb.sty
+#+end_example

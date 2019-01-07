@@ -12,7 +12,11 @@ dvipdfmx TeXWorkshop
 #+END_SRC
 
 * ファイル説明
+#+BEGIN_SRC sh :results output
+#tree
+#+END_SRC
 
+#+begin_example
 .
 |-- #README.org#
 |-- Example_wagahai.pdf
@@ -57,4 +61,4 @@ dvipdfmx TeXWorkshop
 |-- jpaper.cls
 |-- main.org                      <- プロジェクト全体を見渡すorgファイル
 `-- mediabb.sty
-
+#+end_example

@@ -112,7 +112,17 @@
 **** コマンドラインから行う場合
 上で述べたような統合開発環境の背後動いているタイプセットのコマンドを，直接利用することもできます（付録参照）．
 
-最低限のpdfの図を挿入
+#+BEGIN_SRC sh :results silent
+cd exercise/
+platex 01_title_section
+dvipdfmx 01_title_section
+open 01_title_section.pdf
+#+END_SRC
+
+#+BEGIN_SRC sh :results silent
+convert -density 300x300 -units PixelsPerInch -trim exercise/01_title_section.pdf -alpha off exercise/01_title_section.png
+#+END_SRC
+[[./exercise/01_title_section.png]]
 
 できましたか？
 まずは，手強い報告書に立ち向かうための第一歩を踏み出しました．

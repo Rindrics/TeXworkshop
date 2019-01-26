@@ -114,7 +114,7 @@ TeX 形式の原稿は，以下のようになります．
 #+END_SRC
 
 おめでとうございます！
-この時点で，「内容とレイアウトの直交性」の問題は，もう解決することができました．
+この時点で既に，「内容とレイアウトの直交性」の問題は，すでにもう解決することができました．
 
 この報告書には著者や日付の記載がありませんので，\author と \date は空欄にしておきましょう．
 
@@ -221,6 +221,11 @@ tree ex2/figs/
 : `-- maturation.png
 : 
 : 0 directories, 6 files
+
+*** 図を読み込む
+dvipdfmx パッケージを追加し，
+\begin{figure} で読み込みます．
+キャプションも書いておきます．
 
 #+BEGIN_SRC latex :tangle ex2/twanchovy.tex
 \documentclass{jsarticle}

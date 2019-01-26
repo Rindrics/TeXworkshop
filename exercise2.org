@@ -177,13 +177,14 @@ convert -density 300x300 -units PixelsPerInch -crop 1950x1150+280+600 ex2/twanch
 \section{生態}
 \section{漁業の状況}
 \section{資源の状態}
-\section{\ThisYr 年ABCの算定}                                            % マクロ展開
+\section{\ThisYr 年ABCの算定}
 \section{ABC以外の管理方策の提言}
 \end{document}
 #+END_SRC
 *** コラム　【試行錯誤にはアウトライナーを】
 TeX は，確かに内容とレイアウトを分離してくれますが，
 構造に関する\section{}などの制御文を書くのが面倒，と思われるかもしれません．
+事実，面倒です．
 
 この問題は，構造の決まった報告書執筆の際にはあまり問題になりませんが，
 論理構造の試行錯誤が必要な，新しい文書の執筆には向きません．

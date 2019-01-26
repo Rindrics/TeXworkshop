@@ -300,8 +300,7 @@ TwoFigs という名前のマクロを作ってみましょう．
 \newcommand{\ThisYrJP}{30}
 
 \newenvironment{TwoFigs}[6]{
-\begin{figure}[htp]
-    \captionsetup{width=65mm}
+\begin{figure}[h]
  \begin{minipage}{0.5\hsize}
   \begin{center}
    \includegraphics[width=70mm]{#1}
@@ -327,10 +326,18 @@ TwoFigs という名前のマクロを作ってみましょう．
 \section{\ThisYr 年ABCの算定}
 \section{ABC以外の管理方策の提言}
 
+\clearpage
+\TwoFigs
+{figs/map .png}{カタクチイワシ対馬暖流系群の分布域}{fig:distrib}
+{figs/age_length.png}{カタクチイワシの成長様式}{fig:agelen}
 
 \TwoFigs
-{figs/map.png}{カタクチイワシ対馬暖流系群の分布域}{fig:distrib}
-{figs/age_length.png}{カタクチイワシの成長様式}{fig:agelen}
+{figs/maturation.png}{年齢別成熟率}{fig:age_matur}
+{figs/catch.png}{カタクチイワシとシラスの漁獲量}{fig:catch}
+
+\TwoFigs
+{figs/eggp.png}{産卵量の経年変化}{fig:eggp}
+{figs/index_cpue.png}{現存量指標値}{fig:index_cpue}
 
 \end{document}
 #+END_SRC
@@ -343,7 +350,7 @@ dvipdfmx twanchovy
 
 #+BEGIN_SRC sh :results silent :exports none
 convert -density 300x300 -units PixelsPerInch -crop 3000x2150+280+600 ex2/twanchovy.pdf\
- ex2/twanchovy02.png
+ ex2/twanchovy03.png
 #+END_SRC
 ** 数値データも流し込もう
 *** 数値リストの準備

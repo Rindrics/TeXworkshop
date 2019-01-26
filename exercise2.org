@@ -209,6 +209,45 @@ TeX は，確かに内容とレイアウトを分離してくれますが，
 プログラムから特定のfig/内に書き出す
 *** 図表の挿入
 これまで見てきた通り
+#+BEGIN_SRC latex :tangle ex2/twanchovy.tex
+\documentclass{jsarticle}
+\usepackage[dvipdfmx, hiresbb]{graphicx, xcolor}
+\title{平成\ThisYrJP（\ThisYr）年度カタクチイワシ対馬暖流系群の資源評価}
+\author{}
+\date{}
+
+\newcommand{\ThisYr}{2018}
+\newcommand{\ThisYrJP}{30}
+
+\begin{document}
+\maketitle
+\section{まえがき}
+\section{生態}
+\section{漁業の状況}
+\section{資源の状態}
+\section{\ThisYr 年ABCの算定}
+\section{ABC以外の管理方策の提言}
+
+\begin{figure}[htp]
+ \begin{minipage}{0.5\hsize}
+  \begin{center}
+   \includegraphics[width=70mm]{figs/map.png}
+  \end{center}
+  \caption{カタクチイワシ対馬暖流系群の分布域}
+  \label{fig:distrib}
+ \end{minipage}
+ \begin{minipage}{0.5\hsize}
+  \begin{center}
+   \includegraphics[width=70mm]{figs/age_length.png}
+  \end{center}
+  \caption{カタクチイワシの成長様式}
+  \label{fig:agelen}
+ \end{minipage}
+\end{figure}
+
+\end{document}
+#+END_SRC
+
 *** 配置のパターンを定義する
 1ページに図表何枚など，同じ貼り方が繰り返される場合，
 その貼り方にわかりやすい名前をつけて定義してしまうといい．

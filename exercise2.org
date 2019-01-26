@@ -266,9 +266,21 @@ dvipdfmx パッケージを追加し，
 \end{document}
 #+END_SRC
 
-*** 配置のパターンを定義する
-1ページに図表何枚など，同じ貼り方が繰り返される場合，
-その貼り方にわかりやすい名前をつけて定義してしまうといい．
+
+#+BEGIN_SRC sh :results silent :exports none
+cd ex2/
+platex twanchovy
+dvipdfmx twanchovy
+#+END_SRC
+
+#+BEGIN_SRC sh :results silent :exports none
+convert -density 300x300 -units PixelsPerInch -crop 3000x2150+280+600 ex2/twanchovy.pdf\
+ ex2/twanchovy02.png
+#+END_SRC
+これをコンパイルしてみると，無事に図が挿入されたことを確認できました．
+[[.ex2/twanchovy02.png]]
+つづいて，図を増やしていきましょう．
+
 ** 数値データも流し込もう
 *** 数値リストの準備
 プログラムからcsvで書き出す

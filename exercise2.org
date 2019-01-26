@@ -162,9 +162,9 @@ convert -density 300x300 -units PixelsPerInch -crop 1950x1150+280+600 ex2/twanch
 
 これで，本文中で \ThisYr などと書いてタイプセットすれば，「2018」が展開されるようになります．
 やってみましょう．
-#+BEGIN_SRC latex
+#+BEGIN_SRC latex :tangle ex2/twanchovy.tex
 \documentclass{jsarticle}
-\title{平成\ThisYrJP（\ThisYr）年度カタクチイワシ対馬暖流系群の資源評価} % マクロ展開
+\title{平成\ThisYrJP（\ThisYr）年度カタクチイワシ対馬暖流系群の資源評価}
 \author{}
 \date{}
 

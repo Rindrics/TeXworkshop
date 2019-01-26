@@ -281,6 +281,70 @@ convert -density 300x300 -units PixelsPerInch -crop 3000x2150+280+600 ex2/twanch
 [[.ex2/twanchovy02.png]]
 つづいて，図を増やしていきましょう．
 
+*** 図の配置パターンをマクロとして定義する
+本家の報告書の896ページを見ると，1ページ中に3行2列の様式で，図が貼られています．
+この配置は，上で追加した方法をあと2回くり返せば再現できますが，
+変数の部分よりも制御文の方が多くなってしまい，原稿がとても読みにくくなってしまいます．
+こんな問題の解決にも，マクロが役立ちます．
+TwoFigs という名前のマクロを作ってみましょう．
+例によって，プリアンブル中に定義してから，ドキュメント部で使用します．
+
+#+BEGIN_SRC latex :tangle ex2/twanchovy.tex
+\documentclass{jsarticle}
+\usepackage[dvipdfmx, hiresbb]{graphicx, xcolor}
+\title{平成\ThisYrJP（\ThisYr）年度カタクチイワシ対馬暖流系群の資源評価}
+\author{}
+\date{}
+
+\newcommand{\ThisYr}{2018}
+\newcommand{\ThisYrJP}{30}
+
+\newenvironment{TwoFigs}[6]{
+\begin{figure}[htp]
+    \captionsetup{width=65mm}
+ \begin{minipage}{0.5\hsize}
+  \begin{center}
+   \includegraphics[width=70mm]{#1}
+  \end{center}
+  \caption{#2}
+  \label{#3}
+ \end{minipage}
+ \begin{minipage}{0.5\hsize}
+  \begin{center}
+   \includegraphics[width=70mm]{#4}
+`  \end{center}
+  \caption{#5}
+  \label{#6}
+ \end{minipage}
+\end{figure}}
+
+\begin{document}
+\maketitle
+\section{まえがき}
+\section{生態}
+\section{漁業の状況}
+\section{資源の状態}
+\section{\ThisYr 年ABCの算定}
+\section{ABC以外の管理方策の提言}
+
+
+\TwoFigs
+{figs/map.png}{カタクチイワシ対馬暖流系群の分布域}{fig:distrib}
+{figs/age_length.png}{カタクチイワシの成長様式}{fig:agelen}
+
+\end{document}
+#+END_SRC
+
+#+BEGIN_SRC sh :results silent :exports none
+cd ex2/
+platex twanchovy
+dvipdfmx twanchovy
+#+END_SRC
+
+#+BEGIN_SRC sh :results silent :exports none
+convert -density 300x300 -units PixelsPerInch -crop 3000x2150+280+600 ex2/twanchovy.pdf\
+ ex2/twanchovy02.png
+#+END_SRC
 ** 数値データも流し込もう
 *** 数値リストの準備
 プログラムからcsvで書き出す

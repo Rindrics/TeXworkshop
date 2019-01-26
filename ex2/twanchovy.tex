@@ -7,6 +7,24 @@
 \newcommand{\ThisYr}{2018}
 \newcommand{\ThisYrJP}{30}
 
+\newenvironment{TwoFigs}[6]{
+\begin{figure}[h]
+ \begin{minipage}{0.5\hsize}
+  \begin{center}
+   \includegraphics[width=70mm]{#1}
+  \end{center}
+  \caption{#2}
+  \label{#3}
+ \end{minipage}
+ \begin{minipage}{0.5\hsize}
+  \begin{center}
+   \includegraphics[width=70mm]{#4}
+`  \end{center}
+  \caption{#5}
+  \label{#6}
+ \end{minipage}
+\end{figure}}
+
 \begin{document}
 \maketitle
 \section{まえがき}
@@ -16,21 +34,17 @@
 \section{\ThisYr 年ABCの算定}
 \section{ABC以外の管理方策の提言}
 
-\begin{figure}[htp]
- \begin{minipage}{0.5\hsize}
-  \begin{center}
-   \includegraphics[width=70mm]{figs/map.png}
-  \end{center}
-  \caption{カタクチイワシ対馬暖流系群の分布域}
-  \label{fig:distrib}
- \end{minipage}
- \begin{minipage}{0.5\hsize}
-  \begin{center}
-   \includegraphics[width=70mm]{figs/age_length.png}
-  \end{center}
-  \caption{カタクチイワシの成長様式}
-  \label{fig:agelen}
- \end{minipage}
-\end{figure}
+\clearpage
+\TwoFigs
+{figs/age_length.png}{カタクチイワシ対馬暖流系群の分布域}{fig:distrib}
+{figs/age_length.png}{カタクチイワシの成長様式}{fig:agelen}
+
+\TwoFigs
+{figs/maturation.png}{年齢別成熟率}{fig:age_matur}
+{figs/catch.png}{カタクチイワシとシラスの漁獲量}{fig:catch}
+
+\TwoFigs
+{figs/eggp.png}{産卵量の経年変化}{fig:eggp}
+{figs/index_cpue.png}{現存量指標値}{fig:index_cpue}
 
 \end{document}

@@ -206,9 +206,25 @@ TeX は，確かに内容とレイアウトを分離してくれますが，
 
 ** 図表を挿入しよう
 *** 素材の準備
-プログラムから特定のfig/内に書き出す
-*** 図表の挿入
-これまで見てきた通り
+続いて，TeX から図を読み込んで，報告書に配置します．
+使用する図を一箇所にまとめると，ディレクトリをきれいに使うことができます．
+この講習会のリポジトリの ex2/figs/ に，報告書に使う図を置きました．
+
+#+BEGIN_SRC sh :results scalar :exports both
+tree ex2/figs/
+#+END_SRC
+
+#+RESULTS:
+: ex2/figs/
+: |-- age_length.png
+: |-- catch.png
+: |-- eggp.png
+: |-- index_cpue.png
+: |-- map.png
+: `-- maturation.png
+: 
+: 0 directories, 6 files
+
 #+BEGIN_SRC latex :tangle ex2/twanchovy.tex
 \documentclass{jsarticle}
 \usepackage[dvipdfmx, hiresbb]{graphicx, xcolor}

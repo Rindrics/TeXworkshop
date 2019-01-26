@@ -95,7 +95,8 @@
 - 要約: この項目は，「まえがき」「生態」などとは種類が違う，独立した項目のようです
 - 引用文献: TeX は引用文献リストを自動生成するので，ここで作成する必要はありません
 
-#+BEGIN_SRC latex :tangle exercise/01_title_section.tex
+TeX 形式の原稿は，以下のようになります．
+#+BEGIN_SRC latex :tangle ex2/twanchovy.tex
   \documentclass{jsarticle}
   \title{平成30（2018）年度カタクチイワシ対馬暖流系群の資源評価}
   \author{}
@@ -128,16 +129,16 @@
 この作業の背後で動いているコマンドをコンソールに直接入力すれば， GUI 作業からいっそう解放されます．
 
 #+BEGIN_SRC sh :results silent
-cd exercise/
-platex 01_title_section
-dvipdfmx 01_title_section
-open 01_title_section.pdf
+cd ex2/
+platex twanchovy
+dvipdfmx twanchovy
 #+END_SRC
 
 #+BEGIN_SRC sh :results silent
-convert -density 300x300 -units PixelsPerInch -trim exercise/01_title_section.pdf -alpha off exercise/01_title_section.png
+convert -density 300x300 -units PixelsPerInch -crop 1950x1150+280+600 ex2/twanchovy.pdf\
+ -alpha off ex2/twanchovy01.png
 #+END_SRC
-[[./exercise/01_title_section.png]]
+[[./ex2/twanchovy01.png]]
 
 文書ができましたか？
 まずは，手強い報告書に立ち向かうための第一歩を踏み出しました．

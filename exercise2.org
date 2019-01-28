@@ -202,6 +202,9 @@ TeX は，確かに内容とレイアウトを分離してくれますが，
 アウトラインが確定してから，Org mode の エクスポート機能機能を使って TeX 形式に変換しました．
 
 ** 図表を挿入しよう
+たくさんの図表を報告書内に効率的に配置する方法を紹介する．
+- TeX のマクロを使ったスマートな図の配置方法
+- プログラム言語 R と連携した表の挿入方法
 *** 素材の準備
 続いて，TeX から図を読み込んで，報告書に配置します．
 使用する図を一箇所にまとめると，ディレクトリをきれいに使うことができます．
@@ -353,9 +356,46 @@ convert -density 300x300 -units PixelsPerInch -crop 3000x2150+280+600 ex2/twanch
  ex2/twanchovy03.png
 #+END_SRC
 ** 数値データも流し込もう
-*** 数値リストの準備
-プログラムからcsvで書き出す
-*** 流し込む
+数値がたくさんある．
+プロジェクトは，データベースを持っていることが多い．
+数値を読み込むには，2 通りの方法が考えられる．
+- TeX 内でデータを加工して挿入する
+- 外部プログラムでデータを加工して.tex 形式に書き出し，それを TeX で読み込む
+ここでは，後者の方法を説明します．
+
+理由としては，前者は TeX のパッケージ（[[https://ctan.org/pkg/csvsimple][csvsimple]] など）を使うことになりますが，
+業務では何らかのプログラムを使っていることがほとんどでしょうから
+[fn: と言いつつも，資源評価は手作業です．恐ろしや]，
+データの加工について，ここでさらなる学習コストを割くのは合理的でないからです．
+
+データの加工に外部プログラムを使う場合には，
+最終的に TeX が指定する方法で.tex 形式に書き出せれば，何を使っても構いません．
+ここでは R を使って実現する方法を紹介します[fn: 既にパッケージがあるからです]．
+
+*** データフレームを読み込み，加工して出力する
+まず，データを読み込みましょう．
+ここで読み込むデータは，カタクチイワシ対馬暖流系群の資源計算結果
+[fn: 本当は，これはデータベースではなく計算結果なのですがここではデータベースということにします]
+で，
+列は左から，年，資源量，産卵親魚量，再生産成功率，そして漁獲率です．
+#+BEGIN_SRC R :results silent :session *TeXws* :exports code
+stockdata <- read.csv("ex2/data/Timeseries_TW_Engraulis-japonicus.csv")
+head(stockdata)
+#+END_SRC
+#+BEGIN_SRC R :results table :exports result
+stockdata <- read.csv("ex2/data/Timeseries_TW_Engraulis-japonicus.csv", header = FALSE)
+head(stockdata)
+#+END_SRC
+
+#+RESULTS:
+| Year | B_10^3ton | SSB_10^3ton | RPS_fish_per_kg | CatchRatio_pcnt |
+| 1977 |       149 |         109 |             554 |              52 |
+| 1978 |       101 |          68 |             858 |              55 |
+| 1979 |        74 |          45 |            1613 |              50 |
+| 1980 |        95 |          64 |             855 |              51 |
+| 1981 |       101 |          64 |             821 |              46 |
+R の [[https://cran.r-project.org/web/packages/Hmisc/][Hmisc パッケージ]] を使って，csvデータを加工していきます
+*** TeX で.tex を読み込む
 ** 文献リストの準備
 .bibtexファイル
 ** マクロをstyとして書き出す

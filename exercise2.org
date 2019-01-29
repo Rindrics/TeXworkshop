@@ -371,31 +371,171 @@ convert -density 300x300 -units PixelsPerInch -crop 3000x2150+280+600 ex2/twanch
 データの加工に外部プログラムを使う場合には，
 最終的に TeX が指定する方法で.tex 形式に書き出せれば，何を使っても構いません．
 ここでは R を使って実現する方法を紹介します[fn: 既にパッケージがあるからです]．
+以下のパッケージを使用します．
+#+BEGIN_SRC R :results silent :session *R:TeXworkshop* :exports code
+library(readr)     # データを使いやすい形で読み込む
+library(dplyr)     # 直感的なデータ加工を可能にする
+library(magrittr)  # 関数の出力を次の関数に渡す
+library(Hmisc)     # TeX 形式の表に書き出す
+#+END_SRC
 
 *** データフレームを読み込み，加工して出力する
-まず，データを読み込みましょう．
+まず，データベースを R から読み込みましょう．
 ここで読み込むデータは，カタクチイワシ対馬暖流系群の資源計算結果
-[fn: 本当は，これはデータベースではなく計算結果なのですがここではデータベースということにします]
+[fn: 本当は，これはデータベースではなく計算結果なのですが，ここではデータベースということにします]
 で，
 列は左から，年，資源量，産卵親魚量，再生産成功率，そして漁獲率です．
-#+BEGIN_SRC R :results silent :session *TeXws* :exports code
-stockdata <- read.csv("ex2/data/Timeseries_TW_Engraulis-japonicus.csv")
-head(stockdata)
-#+END_SRC
-#+BEGIN_SRC R :results table :exports result
-stockdata <- read.csv("ex2/data/Timeseries_TW_Engraulis-japonicus.csv", header = FALSE)
-head(stockdata)
+#+BEGIN_SRC R :results silent :session *R:TeXworkshop* :exports code
+  stockdata_original <- read_csv("ex2/data/Timeseries_TW_Engraulis-japonicus.csv")
+  head(stockdata_original)
 #+END_SRC
 
 #+RESULTS:
 | Year | B_10^3ton | SSB_10^3ton | RPS_fish_per_kg | CatchRatio_pcnt |
+|------+-----------+-------------+-----------------+-----------------|
 | 1977 |       149 |         109 |             554 |              52 |
 | 1978 |       101 |          68 |             858 |              55 |
 | 1979 |        74 |          45 |            1613 |              50 |
 | 1980 |        95 |          64 |             855 |              51 |
 | 1981 |       101 |          64 |             821 |              46 |
-R の [[https://cran.r-project.org/web/packages/Hmisc/][Hmisc パッケージ]] を使って，csvデータを加工していきます
+
+このデータのうち，直近 10年分の資源量を掲載する必要があるとします，
+要件に従って，データを加工してみましょう．
+
+#+BEGIN_SRC R :session *R:TeXworkshop* :results silent :exports both
+  yr_end      <- 2018
+  yr_range    <- 10
+  yr_start    <- yr_end - yr_range - 1
+  stockdata <- stockdata_original %>%
+    filter(between(Year, yr_start, yr_end)) %>%
+    select(Year, `B_10^3ton`)
+  stockdata
+#+END_SRC
+
+#+RESULTS:
+| Year | B_10^3ton |
+|------+-----------|
+| 2007 |       247 |
+| 2008 |       208 |
+| 2009 |       138 |
+| 2010 |       151 |
+| 2011 |       128 |
+| 2012 |       106 |
+| 2013 |       101 |
+| 2014 |       120 |
+| 2015 |       128 |
+| 2016 |       103 |
+| 2017 |       104 |
+| 2018 |        98 |
+できました．
+
+続いて，これを .tex 形式で書き出します．
+#+BEGIN_SRC R :session *R:TeXworkshop* :exports code :results silent
+  table <- latexTabular(stockdata, headings = c("年", "資源量（千トン）"),
+                        align = "cr", # 年を中央揃え，資源量は右揃え
+                        hline = TRUE, helvetica = FALSE)
+  write.table(table, "ex2/outpt/table_anchovy.tex",
+              row.names = FALSE, col.names = FALSE, quote = FALSE)
+#+END_SRC
+
+無事，次のようなTeX形式で書き出されました．
+#+BEGIN_SRC sh :results scalar :exports results
+cat ex2/outpt/table_anchovy.tex
+#+END_SRC
+
+#+RESULTS:
+#+begin_example
+\begin{tabular}{cr}
+\multicolumn{1}{c}{年}&\multicolumn{1}{c}{資源量（千トン）}\\\hline
+2007&247\\
+2008&208\\
+2009&138\\
+2010&151\\
+2011&128\\
+2012&106\\
+2013&101\\
+2014&120\\
+2015&128\\
+2016&103\\
+2017&104\\
+2018&98\\
+\end{tabular}
+#+end_example
+
 *** TeX で.tex を読み込む
+上で生成したtable_anchovy.tex を，\input{} を使ってTeXから読み込んでみましょう．
+原稿を，以下のように書き換えます．
+
+#+BEGIN_SRC latex :tangle ex2/twanchovy.tex
+\documentclass{jsarticle}
+\usepackage[dvipdfmx, hiresbb]{graphicx, xcolor}
+\title{平成\ThisYrJP（\ThisYr）年度カタクチイワシ対馬暖流系群の資源評価}
+\author{}
+\date{}
+
+\newcommand{\ThisYr}{2018}
+\newcommand{\ThisYrJP}{30}
+
+\newenvironment{TwoFigs}[6]{
+\begin{figure}[h]
+ \begin{minipage}{0.5\hsize}
+  \begin{center}
+   \includegraphics[width=70mm]{#1}
+  \end{center}
+  \caption{#2}
+  \label{#3}
+ \end{minipage}
+ \begin{minipage}{0.5\hsize}
+  \begin{center}
+   \includegraphics[width=70mm]{#4}
+`  \end{center}
+  \caption{#5}
+  \label{#6}
+ \end{minipage}
+\end{figure}}
+
+\begin{document}
+\maketitle
+\section{まえがき}
+\section{生態}
+\section{漁業の状況}
+\section{資源の状態}
+\section{\ThisYr 年ABCの算定}
+\section{ABC以外の管理方策の提言}
+
+
+\begin{table}[h]
+\begin{center}
+\caption{カタクチイワシの資源量}
+\label{tbl:bmass}
+\input{outpt/table_anchovy.tex}
+\end{center}
+\end{table}
+
+
+\clearpage
+\TwoFigs
+{figs/age_length.png}{カタクチイワシ対馬暖流系群の分布域}{fig:distrib}
+{figs/age_length.png}{カタクチイワシの成長様式}{fig:agelen}
+
+\TwoFigs
+{figs/maturation.png}{年齢別成熟率}{fig:age_matur}
+{figs/catch.png}{カタクチイワシとシラスの漁獲量}{fig:catch}
+
+\TwoFigs
+{figs/eggp.png}{産卵量の経年変化}{fig:eggp}
+{figs/index_cpue.png}{現存量指標値}{fig:index_cpue}
+
+\end{document}
+
+#+END_SRC
+
+#+BEGIN_SRC sh :results silent :exports none
+cd ex2/
+platex twanchovy
+dvipdfmx twanchovy
+#+END_SRC
+無事，表を挿入できました．
 ** 文献リストの準備
 .bibtexファイル
 ** マクロをstyとして書き出す

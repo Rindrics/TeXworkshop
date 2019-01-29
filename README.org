@@ -2,7 +2,7 @@
 #+STARTUP: showall
 #+PROPERTY: header-args :results output
 * これは何か？
-TeXの講習会のリポジトリ
+TeX を普及する講習会のリポジトリ
 ** 用途
 - 講習会受講者: テキストのダウンロードやフィードバック
 - 執筆参加者: 安全な執筆環境の構築

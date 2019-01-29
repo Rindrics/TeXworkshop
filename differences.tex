@@ -3,6 +3,7 @@
 \clearpage
 
 \section{\TeX のすゝめ}
+ここで，本章でやることの概要を書く．
 
 \subsection{ワープロソフトの種類}
 動作に着目すると、文書を作成するソフトウェアは大きく2タイプに分類することができます。
@@ -13,9 +14,11 @@
 \ruby{WYSIWYM}{ウィジウィム} [What You See Is What You \kenten{M}ean]タイプです。
 
 私たちは、日々の研究活動や業務において様々な種類の文書を扱いますが、
-その特性の大部分は文書の規模、構造化の程度や内容の反復度、数値データの数、相互参照や図表の数などによって決定されます。
+その特性の大部分は文書の規模、構造化の程度や内容の反復度、
+数値データの数、相互参照や図表の数などによって決定されます。
 品質要求を満たした文書を最短時間で作成するためには、
-自身が作成しようとしている文書の特性を見極め、適切なタイプのソフトウェアを使用する必要があります。
+自身が作成しようとしている文書の特性を見極め、
+適切なタイプのソフトウェアを使用する必要があります。
 それでは、これら2つのタイプの文書作成ソフトウェアは、どのように異なるのでしょうか。
 
 \subsubsection{WYSIWYG}
@@ -42,7 +45,8 @@ WYSIWYMタイプのソフトウェアでは、編集画面が見たままに出�
 \TeX では、目次や図表、索引、脚注、数式番号、文献などの参照も、
 ファイル名や参照のための手がかりを埋め込んでおくことによって、容易に実現できます。
 「○○ページを御覧ください」のような、特定ページの参照も可能です。
-この方式をとっていることによって、\TeX で作成された文書は変更に強く、再現性を高く保つことができます（表 \ref{table:differences}）。
+この方式をとっていることによって、\TeX で作成された文書は変更に強く、再現性を高く保つことができます
+（表 \ref{table:differences}）。
 文書の体裁に注意力を削がれずに済むため、執筆者は残りの作業時間の大部分を文書内容の推敲に充てることができます。
 
 \TeX は、変更を成果物に反映させるためにコンパイルを必要とします。
@@ -50,47 +54,57 @@ WYSIWYMタイプのソフトウェアでは、編集画面が見たままに出�
 相互参照の手がかりを拾い集め、最終的な成果物を作成します。
 コンパイルは一見、煩わしい手間に思えるかもしれませんが、\TeX はユーザーからの入力を常時監視せずに済みますし、
 編集する文書自体はタネも仕掛けもない単なるプレーンテキストですので
-\footnote{例えばMS Wordの \ttfamily{.docx}ファイルは仕掛けだらけで、本文が記述されたファイルの他に、\\
-様々な設定やコンテンツファイル群がまとめられていますが、それらはあたかも一つのファイルであるかのように隠蔽されています。}、
+\footnote{例えばMS Wordの \ttfamily{.docx}ファイルは仕掛けだらけで、\\
+本文が記述されたファイルの他に、様々な設定やコンテンツファイル群がまとめられていますが、\\
+それらはあたかも一つのファイルであるかのように隠蔽されています。}、
 大規模な文書を扱う際にも動作を軽快に保つことができます。
 
 \begin{table}[h]
-  \begin{center}
+ \begin{center}
   \caption{Microsoft Wordと\TeX の長所の違い}
   \label{table:differences}
   \begin{tabular}{rcc}
-                & Word & \TeX \\\hline
-    機能の数              & $\circ$ & $\times$\\
-    直感的操作            & $\circ$ & $\times$\\
-    学習コスト            & $\circ$ & $\times$\\
-    再現性                & $\times$ & $\circ$ \\
-    相互参照              & $\times$ & $\circ$ \\
-    大規模文書の扱いやすさ& $\times$ & $\circ$ \\\hline
+   & Word & \TeX \\\hline
+   機能の数              & $\circ$ & $\times$\\
+   直感的操作            & $\circ$ & $\times$\\
+   学習コスト            & $\circ$ & $\times$\\
+   再現性                & $\times$ & $\circ$ \\
+   相互参照              & $\times$ & $\circ$ \\
+   大規模文書の扱いやすさ& $\times$ & $\circ$ \\\hline
   \end{tabular}
-  \end{center}
+ \end{center}
 \end{table}
 
 \begin{itembox}[l]{メモ}
-\TeX の隠れた特長に、仕上がりの美しさが挙げられます。
-  これは、\TeX が単なるワープロソフトではなく、美しい文書を作成することを目的として開発された組版ソフトであるためです。
-  \TeX の開発者であるDonald Knuth博士は、自著をあたかも組版職人によって組版されたかのように美しく仕上げたいと考え、1976年に\TeX の開発を始めました。
+ \TeX の隠れた特長に、仕上がりの美しさが挙げられます。
+ これは、\TeX が単なるワープロソフトではなく、
+ 美しい文書を作成することを目的として開発された「組版」ソフトであるためです。
+ \TeX の開発者であるDonald Knuth博士は、自著をあたかも組版職人によって組版されたかのように
+ 美しく仕上げたいと考え、1976年に\TeX の開発を始めました。
 \end{itembox}
 
+
 \subsection{報告書・論文作成には\TeX を}
-WYSIWIG/WYSIWYM両タイプのソフトウェア(以下Microsoft Wordと\TeX）は場面に応じて適切に使い分けることが重要です。
+WYSIWIG/WYSIWYM両タイプのソフトウェア(以下Microsoft Wordと\TeX）は
+場面に応じて適切に使い分けることが重要です。
 このことを理解するために、万能包丁と蕎麦切り包丁のアナロジーを考えてみましょう。
 料理（文書）の特性に合わせて、包丁（ソフトウェア）を使い分けるのは自然なことです。
 
-今あなたが、ちょっと小腹が空いてしまったとします。
-自分で食べるちょっとした一皿を、冷蔵庫にあるあり合わせの材料で、手早く美味しく作りたい、という状況で、蕎麦切り包丁を手にする人はいないでしょう。
+ちょっと小腹が空いてしまった状況を考えてみましょう．
+自分で食べるちょっとした一皿を、冷蔵庫にあるあり合わせの材料で、
+手早く美味しく作りたい...
+この状況で、蕎麦切り包丁を手にする人はいないでしょう。
 こんな時には万能包丁の出番です。
 
 では、あなたがお蕎麦屋さんの蕎麦打ち職人だったらどうでしょうか。
-お客様にあなたの自慢の蕎麦を美味しく食べてもらうには、少なくとも麺は\kenten{均一}な太さでないといけません。
-ここで使うべきは間違いなく蕎麦切り包丁で、あなたは店の個性を麺の味わいやコシ、太さなどで表現するはずです。
+とびきり美味しい蕎麦を食べてもらいたいと思っているのに，
+まして太さがバラバラの麺をお出しするわけには行きませんよね．
+麺を真っ直ぐ切る仕事は蕎麦切り包丁に任せ，あなたは麺の味わいやコシを追求することに集中すべきです．
+間違っても，万能包丁を手に四苦八苦してはいけません．
 
-もうお気づきとは思いますが、「ちょっとした一皿と万能包丁」はちょっとした覚え書きとMicrosoft Wordの、
-「自慢の蕎麦と蕎麦切り包丁」は報告書や学術論文と\TeX のアナロジーです。毎年、一定のフォーマットで提出する報告書、IMRAD型式の学術論文は、\TeX で作成しましょう。
+「ちょっとした一皿と万能包丁」はちょっとした覚え書きとMicrosoft Wordの、
+「自慢の蕎麦と蕎麦切り包丁」は報告書や学術論文と\TeX のアナロジーです。
+毎年、一定のフォーマットで提出する報告書、IMRAD型式の学術論文は、\TeX で作成しましょう。
 
 \subsection{\TeX ファイルの構造}
 \TeX で文書を作成するための\ttfamily{.tex}ファイルは大まかには2つの部分に分かれています。
@@ -99,10 +113,10 @@ WYSIWIG/WYSIWYM両タイプのソフトウェア(以下Microsoft Wordと\TeX）�
 それぞれの役割を見ていきましょう。
 
 \begin{figure}[H]
-\begin{center}
-\includegraphics[width=\textwidth,clip]{Example_wagahai.eps}
-\caption{test}\label{fig:example_wagahai}
-\end{center}
+ \begin{center}
+  \includegraphics[width=\textwidth,clip]{Example_wagahai.eps}
+  \caption{test}\label{fig:example_wagahai}
+ \end{center}
 \end{figure}
 
 \subsubsection{プリアンブル}
@@ -113,10 +127,10 @@ WYSIWIG/WYSIWYM両タイプのソフトウェア(以下Microsoft Wordと\TeX）�
 この\ttfamily{.tex}ファイルをコンパイルすると、図\ref{fig:tategaki}のような文書が出力されます。
 
 \begin{figure}[H]
-\begin{center}
-\includegraphics[width=0.5\textwidth,clip]{tategaki.eps}
-\caption{test}\label{fig:tategaki}
-\end{center}
+ \begin{center}
+  \includegraphics[width=0.5\textwidth,clip]{tategaki.eps}
+  \caption{test}\label{fig:tategaki}
+ \end{center}
 \end{figure}
 
 
@@ -125,17 +139,17 @@ WYSIWIG/WYSIWYM両タイプのソフトウェア(以下Microsoft Wordと\TeX）�
 ここで、プリアンブルの役割を理解するために、文書クラスを\ttfamily{"article"}に変更してみましょう（図\ref{fig:change_doc_class}(a)）。
 コンパイルしてみると、図\ref{fig:change_doc_class} (b) のように、ただちに横書きの文書が出力されます。
 \begin{figure}[htbp]
-\centering
-\subfigure[\ttfamily{.tex}ファイル]{
-  \includegraphics[clip, width=0.45\textwidth]{yokogaki.eps}
-  \label{fig:yokogaki_src}
-}
-\subfigure[出力]{
-  \includegraphics[clip, width=0.45\textwidth]{yokogaki_output.eps}
-  \label{fig:yokogaki_out}
-}
-\caption{文書クラスの変更例}
-\label{fig:change_doc_class}
+ \centering
+ \subfigure[\ttfamily{.tex}ファイル]{
+ \includegraphics[clip, width=0.45\textwidth]{yokogaki.eps}
+ \label{fig:yokogaki_src}
+ }
+ \subfigure[出力]{
+ \includegraphics[clip, width=0.45\textwidth]{yokogaki_output.eps}
+ \label{fig:yokogaki_out}
+ }
+ \caption{文書クラスの変更例}
+ \label{fig:change_doc_class}
 \end{figure}
 
 
@@ -173,17 +187,17 @@ part、chapter、section、subsection、subsubsection、paragraph、subparagraph
 それはなぜでしょうか。
 
 \begin{figure}[htbp]
-\centering
-\subfigure[\ttfamily{.tex}ファイル]{
-  \includegraphics[clip, width=0.45\textwidth]{large_italic.eps}
-  \label{fig:large_italic_src}
-}
-\subfigure[出力]{
-  \includegraphics[trim={3cm 7cm 0 0},clip, width=0.3\textwidth]{large_italic_out.eps}
-  \label{fig:large_italic_out}
-}
-\caption{その場限りのフォント変更}
-\label{fig:large_italic}
+ \centering
+ \subfigure[\ttfamily{.tex}ファイル]{
+ \includegraphics[clip, width=0.45\textwidth]{large_italic.eps}
+ \label{fig:large_italic_src}
+ }
+ \subfigure[出力]{
+ \includegraphics[trim={3cm 7cm 0 0},clip, width=0.3\textwidth]{large_italic_out.eps}
+ \label{fig:large_italic_out}
+ }
+ \caption{その場限りのフォント変更}
+ \label{fig:large_italic}
 \end{figure}
 \clearpage
 
@@ -195,25 +209,25 @@ part、chapter、section、subsection、subsubsection、paragraph、subparagraph
 検索・置換作業を繰り返し、サイズ指定を変更して回らねばなりません。
 
 \begin{figure}[htbp]
-\centering
-\subfigure[\ttfamily{.tex}ファイル]{
-  \includegraphics[clip, width=0.45\textwidth]{redundant.eps}
-  \label{fig:redundant_src}
-}
-\subfigure[出力]{
-  \includegraphics[clip, width=0.45\textwidth]{redundant_out.eps}
-  \label{fig:redundant_out}
-}\caption{そのばしのぎはあとが大変}
-\label{fig:redundant}
+ \centering
+ \subfigure[\ttfamily{.tex}ファイル]{
+ \includegraphics[clip, width=0.45\textwidth]{redundant.eps}
+ \label{fig:redundant_src}
+ }
+ \subfigure[出力]{
+ \includegraphics[clip, width=0.45\textwidth]{redundant_out.eps}
+ \label{fig:redundant_out}
+ }\caption{そのばしのぎはあとが大変}
+ \label{fig:redundant}
 \end{figure}
 
 このような状況を回避するために、
 \TeX ではプリアンブルにおけるマクロの定義（図\ref{fig:macro}）が推奨されています。
 \begin{figure}[htbp]
-\centering
-  \includegraphics[clip, width=\textwidth]{macro.eps}
-  \caption{マクロを利用したフォントの変更}
-  \label{fig:macro}
+ \centering
+ \includegraphics[clip, width=\textwidth]{macro.eps}
+ \caption{マクロを利用したフォントの変更}
+ \label{fig:macro}
 \end{figure}
 マクロはひとたび定義してしまえば、本文中で呼び出すことによって何度でも利用でき、
 何よりもプリアンブルにおける定義を変更するだけで一括で設定を変更できるのが利点です。
@@ -222,32 +236,41 @@ part、chapter、section、subsection、subsubsection、paragraph、subparagraph
 本講習で配布するサンプルコードで、いろいろと試してみてください。
 
 \begin{itembox}[l]{コラム: \TeX 記法は面倒？}
-本文のフォントや体裁を変更する場合、
-「気軽さ」という観点では、\TeX はMS Wordには到底敵いません。
-MS Wordではキーボードショートカットで瞬時に作業が完了するのに対し、
-\TeX の関数は、入力に時間がかかる上、入力後も本文中でスペースを占め続けます。
-このように、\TeX 記法は一見、時空間的コストが高く思えるのですが、
-この特性は文書の規模が大きくなるにつれ、むしろメリットに変化していきます。
+ 本文のフォントや体裁を変更する場合、
+ 「気軽さ」という観点では、\TeX はMS Wordには到底敵いません。
+ MS Wordではキーボードショートカットで瞬時に作業が完了するのに対し、
+ \TeX の関数は、入力に時間がかかる上、入力後も本文中でスペースを占め続けます。
+ このように、\TeX 記法は一見、時空間的コストが高く思えるのですが、
+ この特性は文書の規模が大きくなるにつれ、むしろメリットに変化していきます。
 
-体裁の指定が目立つこと自体が、1つ目のメリットといえるでしょう。
-体裁の指定が目立つ分、単純に、体裁の直し忘れが起こりにくいですし、プレーンテキストなので検索も可能です。
+ 体裁の指定が目立つこと自体が、1つ目のメリットといえるでしょう。
+ 体裁の指定が目立つ分、単純に、体裁の直し忘れが起こりにくいですし、プレーンテキストなので検索も可能です。
 
  2つめのメリットはさらに重要です。
  \TeX 記法は体裁の指定に手間がかかる分、自分が今から\kenten{何をしようとしているのか}を、慎重に考えるようになります。
  例えば、フォントの色や大きさを変えようとしているとき、その本来の目的はその部分を強調して伝えることでしょう。
-ひょっとしたら、フォントを変更して文面を煩雑にするよりも、アウトラインを整理する方がよほど効果的かもしれません。
+ ひょっとしたら、フォントを変更して文面を煩雑にするよりも、アウトラインを整理する方がよほど効果的かもしれません。
 
 \end{itembox}
 
 \begin{itembox}[l]{コラム: タイトル}
-ここまで示してきた図のプリアンブルに、
-\verb|\title{吾輩は猫である}|
-や
-\verb|\author{夏目漱石}|
-などと書いてあったのにお気づきでしたでしょうか。
-これは\TeX に標準で備わった、文書の情報（属性といいます）を格納するマクロの一種です。
-ドキュメント部に\verb|\maketitle|と書けば、
-著者名や表題、日付が書かれたタイトルページが出力されます。
+ ここまで示してきた図のプリアンブルに、
+ \verb|\title{吾輩は猫である}|
+ や
+ \verb|\author{夏目漱石}|
+ などと書いてあったのにお気づきでしたでしょうか。
+ これは\TeX に標準で備わった、文書の情報（属性といいます）を格納するマクロの一種です。
+ ドキュメント部に\verb|\maketitle|と書けば、
+ 著者名や表題、日付が書かれたタイトルページが出力されます。
 \end{itembox}
+
+\subsection{本章で学んだこと}
+\begin{itemize}
+  \item WISIWIG と WISIWIM 方式の違いと，それぞれの得意とする作業
+  \item 報告書に適しているのは WISIWIM 方式で，\TeX はその代表格である
+  \item \TeX らしい記法の紹介
+\end{itemize}
+
+
 
 \end{document}

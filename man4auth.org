@@ -1,9 +1,8 @@
 #+TITLE: 執筆者用マニュアル
 * 執筆環境の準備
-* コンパイル
+* コンパイル & ファイル監視
 #+BEGIN_SRC sh :results silent
-platex TeXworkshop
-dvipdfmx TeXWorkshop
+docker run --rm -it -v $PWD:/workdir akirahayashi/texws bash -c "latexmk -pvc TeXworkshop.tex"
 #+END_SRC
 
 * ファイル説明

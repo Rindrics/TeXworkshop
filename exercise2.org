@@ -5,7 +5,7 @@
 報告書は，我々執筆者を悩ませるいくつもの特徴を持っていますが，実はまさにTeXの導入が効果的なタイプの文書です．
 まず，水産庁事業「我が国周辺水域の漁業資源評価」の報告書を例として，
 報告書によくみられる手強い性質を分析します．
-続いて，それらの性質に対する，LaTeX を使ったエレガントな解放を，具体的な実装方法とともに紹介していきます．
+続いて，それらの性質に対する，LaTeX を使ったエレガントな解法を，具体的な実装方法とともに紹介していきます．
 
 * 報告書〜手強いヤツ
 報告書には，執筆者にとって負担となる，以下のような特徴があります．
@@ -537,7 +537,55 @@ dvipdfmx twanchovy
 #+END_SRC
 無事，表を挿入できました．
 ** 文献リストの準備
-.bibtexファイル
+*** .bib ファイルを作る
+**** Web から入手
+例えば，https://doi.org/10.1146/annurev-marine-122414-033819 にアクセス
+
+[[ex2/figs/citation.png]]
+**** もっと知りたい人へ
+***** .bib ファイルの構造
+ただのテキストファイル．
+一番大事なことは，中括弧の対応が取れていること．
+#+begin_example
+@情報{}
+@情報{}
+
+#+end_example
+
+以下の項目がある
+
+- author:
+- title:
+- journal:
+- volume:
+- pages:
+- year:
+
+***** 手作業で作る
+要は，構造の要件を満たしていればOK．
+
+#+begin_example
+@article{smith2017,
+author  = {John, Smith and Mike, McDonald},
+title   = {My first article},
+journal = {Journal of Foobar},
+volume  = {1},
+number  = {1},
+pages   = {1-99},
+year    = {2017},
+}
+
+@article{smith2018,
+author  = {John, Smith and Mike, McDonald and Bill Doe},
+title   = {My second article},
+journal = {Journal of Foobar},
+volume  = {2},
+number  = {1},
+pages   = {1-199},
+year    = {2018},
+}
+#+end_example
+
 ** マクロをstyとして書き出す
 ** 今後の展開
 校閲のために考えられうる機能

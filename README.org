@@ -9,3 +9,4 @@ TeX を普及する講習会のリポジトリ
 * マニュアル
 ** [[file:man4trainee.org::*][受講者向け]]
 ** [[file:man4auth.org][執筆者向け]]
+** GitHub練習中
